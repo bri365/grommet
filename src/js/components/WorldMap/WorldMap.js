@@ -314,7 +314,7 @@ const CONTINENTS = [
 ];
 
 // FACTOR is the distance in pixels between coordinates
-const FACTOR = 10;
+const FACTOR = 16;
 
 const maxCoordinate = (a, b) => [Math.max(a[0], b[0]), Math.max(a[1], b[1])];
 // const minCoordinate = (a, b) =>
@@ -369,7 +369,7 @@ const buildContinentState = ({ area, dots, origin }) => {
       const count = segment[2];
       const spots = [];
       for (let i = 0; i < count; i += 1) spots.push('h0');
-      const dotCommands = spots.join(' m10,0 ');
+      const dotCommands = spots.join(' m16,0 ');
       const x = FACTOR * (origin[0] + segment[0] + 1);
       const y = FACTOR * (origin[1] + segment[1] + 1);
       extent = maxCoordinate(extent, [
