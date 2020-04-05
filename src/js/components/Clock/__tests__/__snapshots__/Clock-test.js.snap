@@ -28,25 +28,11 @@ exports[`Clock hourLimit 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -213,25 +199,11 @@ exports[`Clock run 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c5 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c5 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -408,10 +380,10 @@ exports[`Clock run 1`] = `
 
 exports[`Clock run 2`] = `
 <div
-  class="StyledGrommet-sc-19lkkz7-0 eUfLDp"
+  class="StyledGrommet-sc-19lkkz7-0 lcXYAf"
 >
   <svg
-    class="StyledClock__StyledAnalog-y4xw8s-3 jDcyXz"
+    class="StyledClock__StyledAnalog-y4xw8s-3 gauWBG"
     height="96"
     preserveAspectRatio="xMidYMid meet"
     version="1.1"
@@ -419,7 +391,7 @@ exports[`Clock run 2`] = `
     width="96"
   >
     <line
-      class="StyledClock__StyledSecond-y4xw8s-2 isEYCz"
+      class="StyledClock__StyledSecond-y4xw8s-2 irurNo"
       stroke="#000000"
       stroke-linecap="round"
       style="transform: rotate(204deg); transform-origin: 48px 48px;"
@@ -429,7 +401,7 @@ exports[`Clock run 2`] = `
       y2="9"
     />
     <line
-      class="StyledClock__StyledMinute-y4xw8s-1 fsPksi"
+      class="StyledClock__StyledMinute-y4xw8s-1 ewInbU"
       stroke="#000000"
       stroke-linecap="round"
       style="transform: rotate(138deg); transform-origin: 48px 48px;"
@@ -439,7 +411,7 @@ exports[`Clock run 2`] = `
       y2="12"
     />
     <line
-      class="StyledClock__StyledHour-y4xw8s-0 jpscyg"
+      class="StyledClock__StyledHour-y4xw8s-0 iabzOb"
       stroke="#000000"
       stroke-linecap="round"
       style="transform: rotate(191.5deg); transform-origin: 48px 48px;"
@@ -450,7 +422,7 @@ exports[`Clock run 2`] = `
     />
   </svg>
   <svg
-    class="StyledClock__StyledAnalog-y4xw8s-3 jDcyXz"
+    class="StyledClock__StyledAnalog-y4xw8s-3 gauWBG"
     height="96"
     preserveAspectRatio="xMidYMid meet"
     version="1.1"
@@ -458,7 +430,7 @@ exports[`Clock run 2`] = `
     width="96"
   >
     <line
-      class="StyledClock__StyledSecond-y4xw8s-2 isEYCz"
+      class="StyledClock__StyledSecond-y4xw8s-2 irurNo"
       stroke="#000000"
       stroke-linecap="round"
       style="transform: rotate(204deg); transform-origin: 48px 48px;"
@@ -468,7 +440,7 @@ exports[`Clock run 2`] = `
       y2="9"
     />
     <line
-      class="StyledClock__StyledMinute-y4xw8s-1 fsPksi"
+      class="StyledClock__StyledMinute-y4xw8s-1 ewInbU"
       stroke="#000000"
       stroke-linecap="round"
       style="transform: rotate(138deg); transform-origin: 48px 48px;"
@@ -478,7 +450,7 @@ exports[`Clock run 2`] = `
       y2="12"
     />
     <line
-      class="StyledClock__StyledHour-y4xw8s-0 jpscyg"
+      class="StyledClock__StyledHour-y4xw8s-0 iabzOb"
       stroke="#000000"
       stroke-linecap="round"
       style="transform: rotate(191.5deg); transform-origin: 48px 48px;"
@@ -489,89 +461,89 @@ exports[`Clock run 2`] = `
     />
   </svg>
   <div
-    class="StyledBox-sc-13pk1d4-0 ffeAql"
+    class="StyledBox-sc-13pk1d4-0 eitMOG"
   >
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       1
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       8
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       :
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       2
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       3
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       :
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       3
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       4
     </div>
   </div>
   <div
-    class="StyledBox-sc-13pk1d4-0 ffeAql"
+    class="StyledBox-sc-13pk1d4-0 eitMOG"
   >
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       1
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       8
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       :
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       2
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       3
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       :
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       3
     </div>
     <div
-      class="StyledClock__StyledDigitalDigit-y4xw8s-4 hQDjOB"
+      class="StyledClock__StyledDigitalDigit-y4xw8s-4 gvEvWO"
     >
       4
     </div>
@@ -607,25 +579,11 @@ exports[`Clock time 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -1995,25 +1953,11 @@ exports[`Clock type digital precision hours size large 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2066,25 +2010,11 @@ exports[`Clock type digital precision hours size medium 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2137,25 +2067,11 @@ exports[`Clock type digital precision hours size small 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2208,25 +2124,11 @@ exports[`Clock type digital precision hours size xlarge 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2279,25 +2181,11 @@ exports[`Clock type digital precision hours size xsmall 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2350,25 +2238,11 @@ exports[`Clock type digital precision minutes size large 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2439,25 +2313,11 @@ exports[`Clock type digital precision minutes size medium 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2528,25 +2388,11 @@ exports[`Clock type digital precision minutes size small 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2617,25 +2463,11 @@ exports[`Clock type digital precision minutes size xlarge 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2706,25 +2538,11 @@ exports[`Clock type digital precision minutes size xsmall 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2795,25 +2613,11 @@ exports[`Clock type digital precision seconds size large 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -2902,25 +2706,11 @@ exports[`Clock type digital precision seconds size medium 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -3009,25 +2799,11 @@ exports[`Clock type digital precision seconds size small 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -3116,25 +2892,11 @@ exports[`Clock type digital precision seconds size xlarge 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div
@@ -3223,25 +2985,11 @@ exports[`Clock type digital precision seconds size xsmall 1`] = `
   box-sizing: border-box;
   outline: none;
   max-width: 100%;
-  margin: 0px;
   min-width: 0;
   min-height: 0;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 0px;
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    margin: 0px;
-  }
-}
-
-@media only screen and (max-width:768px) {
-  .c1 {
-    padding: 0px;
-  }
 }
 
 <div

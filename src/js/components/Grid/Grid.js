@@ -4,7 +4,9 @@ import { StyledGrid } from './StyledGrid';
 
 const Grid = props => {
   const {
+    a11yTitle,
     fill, // munged to avoid styled-components putting it in the DOM
+    responsive = true,
     rows, // munged to avoid styled-components putting it in the DOM
     tag,
     as,
@@ -13,8 +15,10 @@ const Grid = props => {
 
   return (
     <StyledGrid
+      a11yTitleProp={a11yTitle}
       as={!as && tag ? tag : as}
       fillContainer={fill}
+      responsive={responsive}
       rowsProp={rows}
       {...rest}
     />

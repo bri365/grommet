@@ -7,7 +7,7 @@ import { Image } from '..';
 
 const opacityTypes = ['weak', 'medium', 'strong', '0.3', true, false];
 const SRC =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAAA1JREFUCB1jYGBg+A8AAQQBAB5znEAAAAAASUVORK5CYII=';
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAAA1JREFUCB1jYGBg+A8AAQQBAB5znEAAAAAASUVORK5CYII='; // eslint-disable-line max-len
 
 test('Image renders', () => {
   const component = renderer.create(
@@ -40,4 +40,17 @@ opacityTypes.forEach(opacity => {
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });
+});
+
+test('Image fillProp renders', () => {
+  const component = renderer.create(
+    <Grommet>
+      <Image fill src={SRC} />
+      <Image fill={false} src={SRC} />
+      <Image fill="horizontal" src={SRC} />
+      <Image fill="vertical" src={SRC} />
+    </Grommet>,
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
 });

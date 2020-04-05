@@ -1,11 +1,12 @@
 import React from 'react';
 import 'jest-styled-components';
 import renderer from 'react-test-renderer';
-import { cleanup, render, fireEvent } from 'react-testing-library';
+import { cleanup, render, fireEvent } from '@testing-library/react';
 
 import { CaretDown } from 'grommet-icons';
 import { createPortal, expectPortal } from '../../../utils/portal';
 
+import { Grommet } from '../..';
 import { Select } from '..';
 
 describe('Select', () => {
@@ -127,14 +128,17 @@ describe('Select', () => {
         onChange={onChange}
       />,
     );
+    const select = getByPlaceholderText('test select');
     expect(container.firstChild).toMatchSnapshot();
-
     fireEvent.click(getByPlaceholderText('test select'));
 
     // pressing enter here nothing will happen
     fireEvent.click(
       document.getElementById('test-select__drop').querySelector('button'),
     );
+
+    // checks it select has a value assigned to it after option is selected
+    expect(select.value).toEqual('one');
     expect(onChange).toBeCalled();
     expect(window.scrollTo).toBeCalled();
   });
@@ -377,5 +381,196 @@ describe('Select', () => {
       <Select id="test-select" options={['one', 'two']} icon />,
     );
     expect(component.toJSON()).toMatchSnapshot();
+  });
+
+  test('modifies select control style on open', () => {
+    const customTheme = {
+      select: {
+        control: {
+          extend: {
+            background: 'purple',
+          },
+          open: {
+            background: 'lightgrey',
+          },
+        },
+        container: {},
+      },
+    };
+
+    const { container } = render(
+      <Grommet theme={customTheme}>
+        <Select
+          data-testid="test-select-style-open"
+          id="test-open-id"
+          options={['morning', 'afternoon', 'evening']}
+          placeholder="Select..."
+        />
+      </Grommet>,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+
+    const selectButton = container.querySelector('Button');
+    let style;
+
+    style = window.getComputedStyle(selectButton);
+    expect(style.background).toBe('purple');
+
+    fireEvent.click(selectButton);
+    style = window.getComputedStyle(selectButton);
+    expect(style.background).toBe('lightgrey');
+
+    fireEvent.click(selectButton);
+    style = window.getComputedStyle(selectButton);
+    expect(style.background).toBe('purple');
+  });
+
+  test(`renders styled select options backwards compatible with legacy
+    documentation (select.options.box)`, () => {
+    const customTheme = {
+      select: {
+        options: {
+          box: {
+            background: 'lightblue',
+          },
+        },
+      },
+    };
+
+    const { getByPlaceholderText, getByText, container } = render(
+      <Grommet theme={customTheme}>
+        <Select
+          data-testid="test-select-style-options-1"
+          id="test-options-style-id"
+          options={['morning', 'afternoon', 'evening']}
+          placeholder="Select..."
+        />
+      </Grommet>,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+
+    const selectButton = getByPlaceholderText('Select...');
+    fireEvent.click(selectButton);
+
+    const optionButton = getByText('morning').closest('button');
+    const style = window.getComputedStyle(optionButton.firstChild);
+    expect(style.background).toBe('lightblue');
+  });
+
+  test('renders styled select options using select.options.container', () => {
+    const customTheme = {
+      select: {
+        options: {
+          container: {
+            background: 'lightgreen',
+          },
+        },
+      },
+    };
+
+    const { getByPlaceholderText, getByText, container } = render(
+      <Grommet theme={customTheme}>
+        <Select
+          data-testid="test-select-style-options-2"
+          id="test-options-style-id"
+          options={['morning', 'afternoon', 'evening']}
+          placeholder="Select..."
+        />
+      </Grommet>,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+
+    const selectButton = getByPlaceholderText('Select...');
+    fireEvent.click(selectButton);
+
+    const optionButton = getByText('morning').closest('button');
+    const style = window.getComputedStyle(optionButton.firstChild);
+    expect(style.background).toBe('lightgreen');
+  });
+
+  test(`renders styled select options combining select.options.box && 
+  select.options.container; 
+  select.options.container prioritized if conflict`, () => {
+    const customTheme = {
+      select: {
+        options: {
+          container: {
+            background: 'lightgreen',
+          },
+          box: {
+            background: 'lightblue',
+            border: {
+              side: 'bottom',
+              size: 'small',
+              color: 'blue',
+            },
+          },
+        },
+      },
+    };
+
+    const { getByPlaceholderText, getByText, container } = render(
+      <Grommet theme={customTheme}>
+        <Select
+          data-testid="test-select-style-options-3"
+          id="test-options-style-id"
+          options={['morning', 'afternoon', 'evening']}
+          placeholder="Select..."
+        />
+      </Grommet>,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+
+    const selectButton = getByPlaceholderText('Select...');
+    fireEvent.click(selectButton);
+
+    let style;
+    const optionButton = getByText('morning').closest('button');
+
+    style = window.getComputedStyle(optionButton.firstChild);
+    expect(style.background).not.toBe('lightblue');
+
+    style = window.getComputedStyle(optionButton.firstChild);
+    expect(style.background).toBe('lightgreen');
+    expect(style.borderBottom).toBe('2px solid blue');
+  });
+
+  test('applies custom global.hover theme to options', () => {
+    const customTheme = {
+      global: {
+        hover: {
+          background: {
+            color: 'lightgreen',
+          },
+          color: {
+            dark: 'lightgrey',
+            light: 'brand',
+          },
+        },
+      },
+    };
+    const { getByPlaceholderText, getByText, container } = render(
+      <Grommet theme={customTheme}>
+        <Select
+          data-testid="applies-custom-hover-style"
+          id="applies-custom-hover-style-id"
+          options={['morning', 'afternoon', 'evening']}
+          placeholder="Select..."
+        />
+      </Grommet>,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
+
+    const selectButton = getByPlaceholderText('Select...');
+    fireEvent.click(selectButton);
+
+    const optionButton = getByText('afternoon').closest('button');
+    fireEvent.mouseOver(optionButton);
+    expect(optionButton).toMatchSnapshot();
   });
 });

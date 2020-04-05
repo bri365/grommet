@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { compose } from 'recompose';
 
@@ -15,67 +15,65 @@ import { Text } from '../Text';
 import { TextInput } from '../TextInput';
 import { normalizeColor } from '../../utils';
 
-class Searcher extends Component {
-  inputRef = React.createRef();
+const Searcher = ({
+  filtering,
+  filters,
+  onFilter,
+  onFiltering,
+  property,
+  theme,
+}) => {
+  const inputRef = useRef();
+  const needsFocus = filtering === property;
 
-  componentDidMount() {
-    /* eslint-disable-next-line react/prop-types */
-    const { filtering, property } = this.props;
-    if (this.inputRef.current && filtering === property) {
-      this.inputRef.current.focus();
+  useEffect(() => {
+    if (inputRef && needsFocus) {
+      inputRef.current.focus();
     }
-  }
+  }, [needsFocus, inputRef]);
 
-  render() {
-    const {
-      /* eslint-disable-next-line react/prop-types */
-      filtering,
-      filters,
-      onFilter,
-      onFiltering,
-      property,
-      theme,
-    } = this.props;
-    if (filtering === property) {
-      return (
-        <Keyboard onEsc={() => onFiltering(undefined)}>
-          <Box flex pad={{ horizontal: 'small' }}>
-            <TextInput
-              ref={this.inputRef}
-              value={filters[property]}
-              onChange={event => onFilter(property, event.target.value)}
-              onBlur={() => onFiltering(undefined)}
-            />
-          </Box>
-        </Keyboard>
-      );
-    }
-
-    return (
-      <Fragment>
-        {filters[property] ? (
-          <Box flex={false} pad={{ horizontal: 'small' }}>
-            <Text>{filters[property]}</Text>
-          </Box>
-        ) : null}
-        <Button
-          icon={
-            <FormSearch
-              color={normalizeColor(
-                filtering === property ? 'brand' : 'border',
-                theme,
-              )}
-            />
-          }
-          hoverIndicator
-          onClick={() =>
-            onFiltering(filtering === property ? undefined : property)
-          }
+  return filtering === property ? (
+    <Keyboard onEsc={() => onFiltering(undefined)}>
+      <Box flex pad={{ horizontal: 'small' }}>
+        <TextInput
+          name={`search-${property}`}
+          ref={inputRef}
+          value={filters[property]}
+          onChange={event => onFilter(property, event.target.value)}
+          onBlur={() => onFiltering(undefined)}
         />
-      </Fragment>
-    );
-  }
-}
+      </Box>
+    </Keyboard>
+  ) : (
+    <>
+      {filters[property] ? (
+        <Box
+          flex={false}
+          pad={{ horizontal: 'small' }}
+          direction="row"
+          align="center"
+        >
+          <Text>{filters[property]}</Text>
+        </Box>
+      ) : null}
+      <Button
+        a11yTitle={`focus-search-${property}`}
+        icon={
+          <FormSearch
+            color={normalizeColor(
+              filtering === property ? 'brand' : 'border',
+              theme,
+            )}
+          />
+        }
+        hoverIndicator
+        onClick={() =>
+          onFiltering(filtering === property ? undefined : property)
+        }
+      />
+    </>
+  );
+};
 
 Searcher.defaultProps = {};
 Object.setPrototypeOf(Searcher.defaultProps, defaultProps);
