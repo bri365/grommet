@@ -40,10 +40,7 @@ const Circle = props => {
       const { color, highlight, label, onHover, value, ...pathRest } = valueArg;
       const key = `p-${index}`;
       const colorName =
-        color ||
-        (index === values.length - 1
-          ? theme.meter.color
-          : defaultColor(index, theme));
+        color || defaultColor(index, theme, values ? values.length : 0);
 
       let endAngle;
       if (startValue + value >= max) {
@@ -109,8 +106,8 @@ const Circle = props => {
             {...pathRest}
           />
         );
-        // If we are on a large enough path to not need re-drawing previous ones,
-        // clear the pathCaps we've collected already.
+        // If we are on a large enough path to not need re-drawing previous
+        // ones, clear the pathCaps we've collected already.
         if (endAngle - startAngle > 2 * anglePer) {
           pathCaps = [];
         }

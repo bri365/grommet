@@ -83,7 +83,8 @@ export const doc = Select => {
       PropTypes.func,
       PropTypes.node,
     ]).description(
-      'A custom icon to be used when rendering the select. You can use false to not render an icon at all.',
+      `A custom icon to be used when rendering the select. You can use false to
+       not render an icon at all.`,
     ),
     labelKey: PropTypes.oneOfType([
       PropTypes.string,
@@ -100,6 +101,9 @@ export const doc = Select => {
     }).description('Custom messages.'),
     multiple: PropTypes.bool.description(
       'Whether to allow multiple options to be selected.',
+    ),
+    name: PropTypes.string.description(
+      `The name of the attribute when in a Form or FormField.`,
     ),
     onChange: PropTypes.func.description(
       'Function that will be called when the user selects an option.',
@@ -121,17 +125,11 @@ export const doc = Select => {
       is more than you'd want to load into the browser. 'onMore' allows you
       to lazily fetch more from the server only when needed.`,
     ),
-    replace: PropTypes.bool
-      .description(
-        `Whether to replace previously rendered items with a generic spacing
-      element when they have scrolled out of view. This is more performant but
-      means that in-page searching will not find elements that have been
-      replaced.`,
-      )
-      .defaultValue(true),
     options: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.string,
+        PropTypes.number,
+        PropTypes.bool,
         PropTypes.element,
         PropTypes.object,
       ]),
@@ -142,13 +140,23 @@ export const doc = Select => {
     open: PropTypes.bool.description(`Control the state of the component.`),
     placeholder: PropTypes.oneOfType([
       PropTypes.string,
+      PropTypes.element,
       PropTypes.node,
-    ]).description('Placeholder text to use when no value is provided.'),
+    ]).description('Placeholder to use when no value is provided.'),
     plain: PropTypes.bool.description(
       'Whether this is a plain Select input with no border or padding.',
     ),
+    replace: PropTypes.bool
+      .description(
+        `Whether to replace previously rendered items with a generic spacing
+      element when they have scrolled out of view. This is more performant but
+      means that in-page searching will not find elements that have been
+      replaced.`,
+      )
+      .defaultValue(true),
     searchPlaceholder: PropTypes.string.description(
-      'Placeholder text to use in the search box when the search input is empty.',
+      `Placeholder text to use in the search box when the search input is 
+      empty.`,
     ),
     selected: PropTypes.oneOfType([
       PropTypes.number,
@@ -161,7 +169,7 @@ export const doc = Select => {
     size: PropTypes.oneOfType([
       PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
       PropTypes.string,
-    ]).description('The size of the select.'),
+    ]).description('The size of the text and icon.'),
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.element, // deprecated, use valueLabel
@@ -198,6 +206,16 @@ export const doc = Select => {
 };
 
 export const themeDoc = {
+  'global.hover.background': {
+    description: 'The background style when hovering.',
+    type: 'string | { color: string, opacity: string }',
+    defaultValue: "{ color: 'active', opacity: 'medium' }",
+  },
+  'global.hover.color': {
+    description: 'The text color when hovering.',
+    type: 'string | { dark: string, light: string }',
+    defaultValue: "{ dark: 'white', light: 'black' }",
+  },
   'select.background': {
     description: 'The background color used for Select.',
     type: 'string',
@@ -218,6 +236,12 @@ export const themeDoc = {
     description:
       'Any additional style for the container of the Select component.',
     type: 'string | (props) => {}',
+    defaultValue: undefined,
+  },
+  'select.control.open': {
+    description: `Any additional style for the control open state of the Select 
+component.`,
+    type: 'object',
     defaultValue: undefined,
   },
   'select.control.extend': {

@@ -12,7 +12,7 @@ An accordion containing collapsible panels.
 import { Accordion, AccordionPanel } from 'grommet';
 <Accordion>
   <AccordionPanel label='Panel 1'>...</AccordionPanel>
-  <AccordionPanel label='Panek 2'>...</AccordionPanel>
+  <AccordionPanel label='Panel 2'>...</AccordionPanel>
 </Accordion>
 \`\`\`
 
@@ -20,7 +20,8 @@ import { Accordion, AccordionPanel } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -50,8 +51,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -63,6 +64,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -94,6 +103,14 @@ xlarge
     large
     xlarge
     string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
   top: 
     xxsmall
     xsmall
@@ -116,9 +133,9 @@ string
 
 **activeIndex**
 
-Active panel index. If specified, Accordion will be a controlled component. This means that future
-panel changes will not work unless you subscribe to onActive function and update activeIndex
-accordingly.
+Active panel index. If specified, Accordion will be a controlled 
+component. This means that future panel changes will not work unless you
+subscribe to onActive function and update activeIndex accordingly.
 
 \`\`\`
 number
@@ -225,6 +242,16 @@ Defaults to
 <FormUp />
 \`\`\`
 
+**accordion.icons.color**
+
+The icon color to use in the accordion. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+control
+\`\`\`
+
 **accordion.icons.expand**
 
 The icon to use when the panel is collapsed. Expects \`React.Element\`.
@@ -304,8 +331,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -317,6 +344,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -341,6 +376,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -378,6 +421,14 @@ string
   dark: string,
   light: string
 }
+\`\`\`
+
+**disabled**
+
+Whether the anchor is disabled.
+
+\`\`\`
+boolean
 \`\`\`
 
 **href**
@@ -425,8 +476,8 @@ boolean
 **size**
 
 The font size is typically driven by the components containing
-this component. But, it can be adjusted directly via this size property, typically
-when it is not contained in a 'Heading', 'Paragraph', or 'Text'.
+this component. But, it can be adjusted directly via this size property,
+typically when it is not contained in a 'Heading', 'Paragraph', or 'Text'.
 
 \`\`\`
 xsmall
@@ -476,7 +527,9 @@ Defaults to
 
 **anchor.textDecoration**
 
-The text decoration of the label. Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) for possible values. Expects \`string\`.
+The text decoration of the label. 
+Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)
+for possible values. Expects \`string\`.
 
 Defaults to
 
@@ -496,7 +549,9 @@ undefined
 
 **anchor.hover.textDecoration**
 
-The text decoration of the label when hovering. Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) for possible values. Expects \`string\`.
+The text decoration of the label when hovering. 
+Refer to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration)
+for possible values. Expects \`string\`.
 
 Defaults to
 
@@ -576,6 +631,127 @@ Defaults to
   }
 \`\`\`
 ",
+  "Avatar": "## Avatar
+An Avatar.
+
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Avatar&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=avatar&module=%2Fsrc%2FAvatar.js)
+## Usage
+
+\`\`\`javascript
+import { Avatar } from 'grommet';
+<Avatar/>
+\`\`\`
+
+## Properties
+
+**size**
+
+A fixed size. Defaults to \`medium\`.
+
+\`\`\`
+xsmall
+small
+medium
+large
+xlarge
+string
+\`\`\`
+
+**src**
+
+Specifies a URL string for an avatar image.
+
+\`\`\`
+string
+\`\`\`
+  
+## Intrinsic element
+
+\`\`\`
+div
+\`\`\`
+## Theme
+  
+**avatar.extend**
+
+Any additional style for the Avatar. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**avatar.size.xsmall**
+
+The xsmall size of the Avatar. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+18px
+\`\`\`
+
+**avatar.size.small**
+
+The small size of the Avatar. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+24px
+\`\`\`
+
+**avatar.size.medium**
+
+The medium size of the Avatar. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+48px
+\`\`\`
+
+**avatar.size.large**
+
+The large size of the Avatar. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+72px
+\`\`\`
+
+**avatar.size.xlarge**
+
+The xlarge size of the Avatar. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+96px
+\`\`\`
+
+**avatar.text.extend**
+
+Any additional style for the text. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**avatar.text.fontWeight**
+
+The font weight of the label. Expects \`number\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+",
   "Box": "## Box
 A container that lays out its contents in one direction. Box
       provides CSS flexbox capabilities for layout, as well as general
@@ -593,7 +769,8 @@ import { Box } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -623,8 +800,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side. Defaults to \`none\`.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -636,6 +813,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -660,6 +845,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -788,9 +981,9 @@ zoomOut
 
 **background**
 
-Either a color identifier to use for the background
-        color. For example: 'neutral-1'. Or, a 'url()' for an image. Dark
-        is not needed if color is provided.
+Either a color 
+identifier to use for the background color. For example: 'neutral-1'. Or, a 
+'url()' for an image. Dark is not needed if color is provided.
 
 \`\`\`
 string
@@ -802,6 +995,7 @@ string
   image: string,
   position: string,
   opacity: 
+    string
     boolean
     number
     weak
@@ -844,7 +1038,8 @@ string
 
 **border**
 
-Include a border.
+Include a border. 'between' will place a border in the gap between
+      child elements. You must have a 'gap' to use 'between'.
 
 \`\`\`
 boolean
@@ -852,9 +1047,12 @@ top
 left
 bottom
 right
+start
+end
 horizontal
 vertical
 all
+between
 {
   color: 
     string
@@ -867,9 +1065,12 @@ all
     left
     bottom
     right
+    start
+    end
     horizontal
     vertical
-    all,
+    all
+    between,
   size: 
     xsmall
     small
@@ -888,6 +1089,42 @@ all
     outset
     hidden
 }
+[{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  side: 
+    top
+    left
+    bottom
+    right
+    start
+    end
+    horizontal
+    vertical
+    all
+    between,
+  size: 
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  style: 
+    solid
+    dashed
+    dotted
+    double
+    groove
+    ridge
+    inset
+    outset
+    hidden
+}]
 \`\`\`
 
 **direction**
@@ -941,6 +1178,15 @@ vertical
 boolean
 \`\`\`
 
+**focusIndicator**
+
+When interactive via 'onClick', whether it should receive a focus
+        outline. Defaults to \`true\`.
+
+\`\`\`
+boolean
+\`\`\`
+
 **gap**
 
 The amount of spacing between child elements. This
@@ -948,6 +1194,7 @@ The amount of spacing between child elements. This
         will not wrap gracefully.
 
 \`\`\`
+none
 xxsmall
 xsmall
 small
@@ -970,6 +1217,61 @@ large
 xlarge
 xxlarge
 string
+{
+  min: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    xxlarge
+    string,
+  max: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    xxlarge
+    string
+}
+\`\`\`
+
+**hoverIndicator**
+
+When 'onClick' has been specified, the hover indicator to apply
+        when the user is mousing over the box.
+
+\`\`\`
+boolean
+string
+background
+{
+  color: string,
+  dark: 
+    boolean
+    string,
+  image: string,
+  light: string,
+  position: string,
+  opacity: 
+    string
+    boolean
+    number
+    weak
+    medium
+    strong,
+  repeat: 
+    no-repeat
+    repeat
+    string,
+  size: 
+    cover
+    contain
+    string
+}
 \`\`\`
 
 **justify**
@@ -984,6 +1286,15 @@ end
 evenly
 start
 stretch
+\`\`\`
+
+**onClick**
+
+Click handler. Setting this property adds additional attributes to
+      the DOM for accessibility.
+
+\`\`\`
+function
 \`\`\`
 
 **overflow**
@@ -1013,8 +1324,8 @@ string
 **pad**
 
 The amount of padding around the box contents. An
-        object can be specified to distinguish horizontal padding, vertical
-        padding, and padding on a particular side of the box Defaults to \`none\`.
+    object can be specified to distinguish horizontal padding, vertical
+    padding, and padding on a particular side of the box Defaults to \`none\`.
 
 \`\`\`
 none
@@ -1026,6 +1337,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -1050,6 +1369,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -1151,6 +1478,26 @@ large
 xlarge
 xxlarge
 string
+{
+  min: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    xxlarge
+    string,
+  max: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    xxlarge
+    string
+}
 \`\`\`
 
 **wrap**
@@ -1237,6 +1584,36 @@ Defaults to
 { dark: rgba(255, 255, 255, 0.33), light: rgba(0, 0, 0, 0.33), }
 \`\`\`
 
+**global.hover.background.color**
+
+The color of the default background when hovering Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+active
+\`\`\`
+
+**global.hover.background.opacity**
+
+The opacity of the default background when hovering Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+medium
+\`\`\`
+
+**global.hover.color**
+
+The color of the default background when hovering Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{ dark: \\"white\\", light: \\"black\\" }
+\`\`\`
+
 **global.opacity.medium**
 
 The value used when background opacity is set to true. Expects \`number\`.
@@ -1278,7 +1655,8 @@ undefined
 
 **box.responsiveBreakpoint**
 
-The actual breakpoint to trigger changes in the border, direction, gap, margin, pad, and round. Expects \`string\`.
+The actual breakpoint to trigger changes in the border, 
+    direction, gap, margin, pad, and round. Expects \`string\`.
 
 Defaults to
 
@@ -1310,7 +1688,8 @@ Defaults to
 
 **global.breakpoints**
 
-The possible breakpoints that could affect border, direction, gap, margin, pad, and round. Expects \`object\`.
+The possible breakpoints that could affect border, direction, gap, margin, 
+    pad, and round. Expects \`object\`.
 
 Defaults to
 
@@ -1371,7 +1750,8 @@ import { Button } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -1401,8 +1781,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -1414,6 +1794,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -1438,6 +1826,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -1473,6 +1869,15 @@ Whether the button is active.
 boolean
 \`\`\`
 
+**as**
+
+The DOM tag or react component to use for the element.
+
+\`\`\`
+string
+function
+\`\`\`
+
 **color**
 
 Fill color for primary, label color for plain, border color otherwise.
@@ -1495,7 +1900,8 @@ boolean
 
 **fill**
 
-Whether the button expands to fill all of the available width and/or height.
+Whether the button expands to fill all of the available width and/or 
+        height.
 
 \`\`\`
 horizontal
@@ -1511,6 +1917,21 @@ Whether when 'plain' it should receive a focus outline. Defaults to \`true\`.
 boolean
 \`\`\`
 
+**gap**
+
+The amount of spacing between icon and label in the button. Defaults to \`small\`.
+
+\`\`\`
+none
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+string
+\`\`\`
+
 **hoverIndicator**
 
 The hover indicator to apply when the user is mousing over the
@@ -1523,8 +1944,27 @@ boolean
 string
 background
 {
-  background: 
+  color: string,
+  dark: 
     boolean
+    string,
+  image: string,
+  light: string,
+  position: string,
+  opacity: 
+    string
+    boolean
+    number
+    weak
+    medium
+    strong,
+  repeat: 
+    no-repeat
+    repeat
+    string,
+  size: 
+    cover
+    contain
     string
 }
 \`\`\`
@@ -1545,20 +1985,6 @@ Icon element to place in the button.
 element
 \`\`\`
 
-**gap**
-
-The amount of spacing between icon and label in the button. Defaults to \`small\`.
-
-\`\`\`
-xxsmall
-xsmall
-small
-medium
-large
-xlarge
-string
-\`\`\`
-
 **label**
 
 Label text to place in the button.
@@ -1570,7 +1996,7 @@ node
 **onClick**
 
 Click handler. Not setting this property and not specifying a href
-causes the Button to be disabled.
+        causes the Button to be disabled.
 
 \`\`\`
 function
@@ -1579,8 +2005,9 @@ function
 **plain**
 
 Whether this is a plain button with no border or pad.
-Non plain button will show both pad and border.
-The plain button has no border and unless the icon prop exist it has no pad as well.
+          Non plain button will show both pad and border.
+          The plain button has no border and unless the icon prop exist it has 
+          no pad as well.
 
 \`\`\`
 boolean
@@ -1588,7 +2015,8 @@ boolean
 
 **primary**
 
-Whether this is a primary button. There should be at most one per page or screen.
+Whether this is a primary button. There should be at most one per page
+            or screen.
 
 \`\`\`
 boolean
@@ -1597,29 +2025,44 @@ boolean
 **reverse**
 
 Whether an icon and label should be reversed so that the icon is at the
-end of the anchor.
+              end of the anchor.
 
 \`\`\`
 boolean
 \`\`\`
 
+**size**
+
+The possible sizes of Button, that impacts the overall Button 
+      padding, border radius, text size and line height. 
+      'size' will not impact any icon related sizing.
+
+\`\`\`
+small
+medium
+large
+\`\`\`
+
+**target**
+
+Specifies where to display the URL defined in the href property.
+
+\`\`\`
+_self
+_blank
+_parent
+_top
+\`\`\`
+
 **type**
 
-The type of button. Set the type to submit for the default button on forms. Defaults to \`button\`.
+The type of button. Set the type to submit for the default button on 
+                forms. Defaults to \`button\`.
 
 \`\`\`
 button
 reset
 submit
-\`\`\`
-
-**as**
-
-The DOM tag or react component to use for the element.
-
-\`\`\`
-string
-function
 \`\`\`
   
 ## Intrinsic element
@@ -1629,9 +2072,49 @@ button
 \`\`\`
 ## Theme
   
+**global.active.background.color**
+
+The background color when using active prop. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+active
+\`\`\`
+
+**global.active.background.opacity**
+
+The value used for active button background opacity. Expects \`number | string\`.
+
+Defaults to
+
+\`\`\`
+medium
+\`\`\`
+
+**global.active.color**
+
+The text color when using active prop. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{ dark: 'white', light: 'black' }
+\`\`\`
+
+**global.hover.background**
+
+The background style when hovering. Expects \`string | { color: string, opacity: string }\`.
+
+Defaults to
+
+\`\`\`
+{ color: 'active', opacity: 'medium' }
+\`\`\`
+
 **global.hover.color**
 
-The background color when hovering. Expects \`string\`.
+The text color when hovering. Expects \`string | { dark: string, light: string }\`.
 
 Defaults to
 
@@ -1641,7 +2124,7 @@ Defaults to
 
 **global.edgeSize.small**
 
-The padding around an icon-only button. Expects \`string\`.
+The padding around an icon-only button. Expects \`string | { dark: string, light: string }\`.
 
 Defaults to
 
@@ -1739,16 +2222,6 @@ Defaults to
 undefined
 \`\`\`
 
-**button.primary.color**
-
-The color of the background for primary buttons. Expects \`string | { dark: string, light: string }\`.
-
-Defaults to
-
-\`\`\`
-undefined
-\`\`\`
-
 **button.disabled.opacity**
 
 The opacity when the button is disabled. Expects \`number\`.
@@ -1777,6 +2250,138 @@ Defaults to
 
 \`\`\`
 4px
+\`\`\`
+
+**button.primary.color**
+
+The color of the background for primary buttons. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**button.size.small.border.radius**
+
+The border corner radius. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+18px
+\`\`\`
+
+**button.size.small.pad.horizontal**
+
+The pad Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+20px
+\`\`\`
+
+**button.size.small.pad.vertical**
+
+The pad Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+4px
+\`\`\`
+
+**button.size.medium.border.radius**
+
+The border corner radius. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+18px
+\`\`\`
+
+**button.size.medium.pad.horizontal**
+
+The pad Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+22px
+\`\`\`
+
+**button.size.medium.pad.vertical**
+
+The pad Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+4px
+\`\`\`
+
+**button.size.large.border.radius**
+
+The border corner radius. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+24px
+\`\`\`
+
+**button.size.large.pad.horizontal**
+
+The pad Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+32px
+\`\`\`
+
+**button.size.large.pad.vertical**
+
+The pad Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+8px
+\`\`\`
+
+**button.transition.duration**
+
+The length of time it will take for the element to transition
+between two states. Expects \`number\`.
+
+Defaults to
+
+\`\`\`
+0.1
+\`\`\`
+
+**button.transition.properties**
+
+The CSS properties you want to add the transition to. Expects \`string[]\`.
+
+Defaults to
+
+\`\`\`
+['color', 'background-color', 'border-color', 'box-shadow']
+\`\`\`
+
+**button.transition.timing**
+
+Describes how a transition will progress over one cycle of its
+duration and allowing it to change speed during its course. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+ease-in-out
 \`\`\`
 
 **button.extend**
@@ -1826,7 +2431,8 @@ import { Calendar } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -1856,8 +2462,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -1869,6 +2475,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -1893,6 +2507,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -2002,9 +2624,11 @@ The function passes the following options:
   }
 \`\`\`
 
-\`onPreviousMonth\` and \`onNextMonth\` are callbacks that will tell the calendar to move between months.
-\`previousInBound\` and \`nextInBound\` are booleans that tell, when using \`bounds\`, if the current date is within that range.
-You can then use that to disable the previous and next buttons.
+\`onPreviousMonth\` and \`onNextMonth\` are callbacks that will tell the 
+calendar to move between months.
+\`previousInBound\` and \`nextInBound\` are booleans that tell, when using 
+\`bounds\`, if the current date is within that range. You can then use that 
+to disable the previous and next buttons.
 
 
 \`\`\`
@@ -2021,7 +2645,8 @@ string
 
 **onReference**
 
-Called with an ISO8601 date when the user navigates to a different month.
+Called with an ISO8601 date when the user navigates to a different
+       month.
 
 \`\`\`
 function
@@ -2084,154 +2709,34 @@ div
 \`\`\`
 ## Theme
   
-**global.size.small**
+**calendar.day.extend**
 
-The width of the calendar when small. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-192px
-\`\`\`
-
-**global.size.medium**
-
-The width of the calendar when medium. Expects \`string\`.
+Any additional style for the day of Calendar. Expects \`string | (props) => {}\`.
 
 Defaults to
 
 \`\`\`
-384px
+undefined
 \`\`\`
 
-**global.size.large**
+**calendar.extend**
 
-The width of the calendar when large. Expects \`string\`.
+Any additional style for the Calendar. Expects \`string | (props) => {}\`.
 
 Defaults to
 
 \`\`\`
-768px
+undefined
 \`\`\`
 
-**calendar.small.fontSize**
+**calendar.heading.level**
 
-The font size to use for days when small. Expects \`string\`.
+The heading level used for the calendar. Expects \`number\`.
 
 Defaults to
 
 \`\`\`
-14px
-\`\`\`
-
-**calendar.small.lineHeight**
-
-The line height to use for days when small. Expects \`number\`.
-
-Defaults to
-
-\`\`\`
-1.375
-\`\`\`
-
-**calendar.small.daySize**
-
-The size of a day when small. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-27.42px
-\`\`\`
-
-**calendar.small.slideDuration**
-
-How long it animate the slide between months when small. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-0.2s
-\`\`\`
-
-**calendar.medium.fontSize**
-
-The font size to use for days when medium. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-18px
-\`\`\`
-
-**calendar.medium.lineHeight**
-
-The line height to use for days when medium. Expects \`number\`.
-
-Defaults to
-
-\`\`\`
-1.45
-\`\`\`
-
-**calendar.medium.daySize**
-
-The size of a day when medium. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-54.84px
-\`\`\`
-
-**calendar.medium.slideDuration**
-
-How long it animate the slide between months when medium. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-0.5s
-\`\`\`
-
-**calendar.large.fontSize**
-
-The font size to use for days when large. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-30px
-\`\`\`
-
-**calendar.large.lineHeight**
-
-The line height to use for days when large. Expects \`number\`.
-
-Defaults to
-
-\`\`\`
-1.11
-\`\`\`
-
-**calendar.large.daySize**
-
-The size of a day when large. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-109.7px
-\`\`\`
-
-**calendar.large.slideDuration**
-
-How long it animate the slide between months when large. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-0.8s
+4
 \`\`\`
 
 **calendar.icons.next**
@@ -2274,24 +2779,186 @@ Defaults to
 <FormPrevious />
 \`\`\`
 
-**calendar.extend**
+**calendar.large.daySize**
 
-Any additional style for the Calendar. Expects \`string | (props) => {}\`.
-
-Defaults to
-
-\`\`\`
-undefined
-\`\`\`
-
-**calendar.day.extend**
-
-Any additional style for the day of Calendar. Expects \`string | (props) => {}\`.
+The size of a day when large. Expects \`string\`.
 
 Defaults to
 
 \`\`\`
-undefined
+109.7px
+\`\`\`
+
+**calendar.large.fontSize**
+
+The font size to use for days when large. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+30px
+\`\`\`
+
+**calendar.large.lineHeight**
+
+The line height to use for days when large. Expects \`number\`.
+
+Defaults to
+
+\`\`\`
+1.11
+\`\`\`
+
+**calendar.large.slideDuration**
+
+How long it animate the slide between months when large. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+0.8s
+\`\`\`
+
+**calendar.medium.daySize**
+
+The size of a day when medium. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+54.84px
+\`\`\`
+
+**calendar.medium.fontSize**
+
+The font size to use for days when medium. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+18px
+\`\`\`
+
+**calendar.medium.lineHeight**
+
+The line height to use for days when medium. Expects \`number\`.
+
+Defaults to
+
+\`\`\`
+1.45
+\`\`\`
+
+**calendar.medium.slideDuration**
+
+How long it animate the slide between months when medium. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+0.5s
+\`\`\`
+
+**calendar.small.daySize**
+
+The size of a day when small. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+27.42px
+\`\`\`
+
+**calendar.small.fontSize**
+
+The font size to use for days when small. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+14px
+\`\`\`
+
+**calendar.small.lineHeight**
+
+The line height to use for days when small. Expects \`number\`.
+
+Defaults to
+
+\`\`\`
+1.375
+\`\`\`
+
+**calendar.small.slideDuration**
+
+How long it animate the slide between months when small. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+0.2s
+\`\`\`
+
+**global.size.small**
+
+The width of the calendar when small. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+192px
+\`\`\`
+
+**global.size.medium**
+
+The width of the calendar when medium. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+384px
+\`\`\`
+
+**global.size.large**
+
+The width of the calendar when large. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+768px
+\`\`\`
+
+**global.colors.icon**
+
+The color of a given icon. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{ dark: #f8f8f8, light: #666666 }
+\`\`\`
+
+**global.edgeSize**
+
+The possible sizes for margin. Expects \`object\`.
+
+Defaults to
+
+\`\`\`
+{
+    edgeSize: {
+      none: '0px',
+      hair: '1px',
+      xxsmall: '3px',
+      xsmall: '6px',
+      small: '12px',
+      medium: '24px',
+      large: '48px',
+      xlarge: '96px',
+      responsiveBreakpoint: 'small',
+    },
+  }
 \`\`\`
 ",
   "Carousel": "## Carousel
@@ -2311,7 +2978,8 @@ import { Carousel } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -2341,8 +3009,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -2354,6 +3022,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -2378,6 +3054,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -2423,6 +3107,25 @@ If specified, the number of
 \`\`\`
 number
 \`\`\`
+
+**initialChild**
+
+If specified, the index of
+      the first element to be shown. Defaults to 0.
+
+\`\`\`
+number
+\`\`\`
+
+**controls**
+
+Whether to show carousel controls and which type of controls. Defaults to \`true\`.
+
+\`\`\`
+boolean
+arrows
+selectors
+\`\`\`
   
 ## Intrinsic element
 
@@ -2441,6 +3144,16 @@ Defaults to
 <Next />
 \`\`\`
 
+**carousel.animation.duration**
+
+The duration of the Carousel animation. Expects \`number\`.
+
+Defaults to
+
+\`\`\`
+1000
+\`\`\`
+
 **carousel.icons.previous**
 
 The icon to use for the previous image navigation control. Expects \`element\`.
@@ -2453,7 +3166,8 @@ Defaults to
 
 **carousel.icons.current**
 
-The icon to use on the middle navigation control. One icon per carousel image. Expects \`element\`.
+The icon to use on the middle navigation control. 
+      One icon per carousel image. Expects \`element\`.
 
 Defaults to
 
@@ -2463,7 +3177,17 @@ Defaults to
 
 **carousel.icons.color**
 
-The color used for Carousel icons. Expects \`string\`.
+The color used for Carousel icons. Expects \`string | { 'dark': string, 'light': string }\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**carousel.disabled.icons.color**
+
+The color used for disabled Carousel icons. Expects \`string | { 'dark': string, 'light': string }\`.
 
 Defaults to
 
@@ -2473,12 +3197,12 @@ undefined
 
 **global.colors.icon**
 
-The color used for Carousel icons. Expects \`object\`.
+The color of a given icon. Expects \`string | { dark: string, light: string }\`.
 
 Defaults to
 
 \`\`\`
-[object Object]
+{ dark: #f8f8f8, light: #666666 }
 \`\`\`
 
 **global.edgeSize**
@@ -2518,7 +3242,8 @@ import { Chart } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -2548,8 +3273,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -2561,6 +3286,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -2585,6 +3318,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -2624,7 +3365,12 @@ The limits for the values, specified as a two dimensional array.
 
 **color**
 
-A color identifier to use for the graphic color. Defaults to \`accent-1\`.
+A color identifier to use for the graphic color. If an
+      array is specified, it is used to create a gradient mask. Array objects
+      indicate what color to show at what value. In the simplest case, the
+      values should map to the Y bounds values, resulting in a vertical
+      gradient. Specifying more objects allows more fine grained control over
+      where the gradient colors change. Defaults to \`accent-1\`.
 
 \`\`\`
 string
@@ -2636,12 +3382,51 @@ string
     strong
     boolean
 }
+[{
+  color: string,
+  value: number
+}]
+\`\`\`
+
+**gap**
+
+The amount of spacing between data points. This
+      is only used when the size specifies width as 'auto'.
+
+\`\`\`
+none
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+string
+\`\`\`
+
+**id**
+
+A unique identifier for the Chart. This
+      is required if more than one Chart is shown and they use color
+      gradients.
+
+\`\`\`
+string
+\`\`\`
+
+**dash**
+
+Whether to use dashed lines for line or bar charts.
+
+\`\`\`
+boolean
 \`\`\`
 
 **onClick**
 
-Called when the user clicks on it.
-      This is only available when the type is line or area.
+Called when the user clicks on the
+     visualization. Clicking on individual bars or points are handled via
+     values[].onClick for those types of charts.
 
 \`\`\`
 function
@@ -2709,6 +3494,7 @@ full
     large
     xlarge
     full
+    auto
     string
 }
 string
@@ -2731,12 +3517,13 @@ string
 
 **type**
 
-The visual type of meter. Defaults to \`bar\`.
+The visual type of chart. Defaults to \`bar\`.
 
 \`\`\`
 bar
 line
 area
+point
 \`\`\`
 
 **values**
@@ -2764,6 +3551,16 @@ Required. Array of value objects describing the data.
   
 ## Theme
   
+**chart.color**
+
+Color of the Chart. Expects \`string | {dark: string, light: string}\`.
+
+Defaults to
+
+\`\`\`
+accent-1
+\`\`\`
+
 **chart.extend**
 
 Any additional style for the Chart. Expects \`string | (props) => {}\`.
@@ -2776,12 +3573,16 @@ undefined
 
 **global.colors**
 
-color options used for Chart fill area. Expects \`object\`.
+Color options. Expects \`object\`.
 
 Defaults to
 
 \`\`\`
-accent-1
+{
+      \\"accent-1\\": \\"#6FFFB0\\",
+      \\"graph-0\\": \\"accent-1\\",
+      ...
+    }
 \`\`\`
 
 **global.edgeSize**
@@ -2806,12 +3607,16 @@ Defaults to
 
 **global.opacity**
 
-The opacity of the Chart stroke. Expects \`string\`.
+The opacity of the Chart stroke. Expects \`object\`.
 
 Defaults to
 
 \`\`\`
-undefined
+{
+      strong: 0.8,
+      medium: 0.4,
+      weak: 0.1,
+    }
 \`\`\`
 
 **global.size**
@@ -2881,7 +3686,8 @@ node
 
 **name**
 
-The DOM name attribute value to use for the underlying <input/> element.
+The DOM name attribute value to use for the underlying <input/> 
+      element.
 
 \`\`\`
 string
@@ -3126,7 +3932,7 @@ The width size of the toggle. Expects \`string\`.
 Defaults to
 
 \`\`\`
-42px
+48px
 \`\`\`
 ",
   "Clock": "## Clock
@@ -3144,7 +3950,8 @@ import { Clock } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -3174,8 +3981,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -3187,6 +3994,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -3211,6 +4026,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -3539,7 +4362,8 @@ import { DataTable } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -3569,8 +4393,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -3582,6 +4406,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -3613,6 +4445,14 @@ xlarge
     large
     xlarge
     string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
   top: 
     xxsmall
     xsmall
@@ -3633,6 +4473,161 @@ xlarge
 string
 \`\`\`
 
+**background**
+
+Cell background. You can set the background per context by passing an
+      object with keys for 'heading', 'body', and/or 'footer'. If you pass
+      an array, rows will cycle between the array values.
+
+\`\`\`
+string
+[string]
+{
+  header: 
+    string
+    [string],
+  body: 
+    string
+    [string],
+  footer: 
+    string
+    [string]
+}
+\`\`\`
+
+**border**
+
+Cell border. You can set the border per context by passing an
+      object with keys for 'heading', 'body', and/or 'footer'.
+
+\`\`\`
+boolean
+horizontal
+vertical
+top
+bottom
+left
+right
+{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  side: 
+    horizontal
+    vertical
+    top
+    bottom
+    left
+    right,
+  size: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
+{
+  header: 
+    boolean
+    horizontal
+    vertical
+    top
+    bottom
+    left
+    right
+    {
+      color: 
+        string
+        {
+          dark: string,
+          light: string
+        },
+      side: 
+        horizontal
+        vertical
+        top
+        bottom
+        left
+        right,
+      size: 
+        xxsmall
+        xsmall
+        small
+        medium
+        large
+        xlarge
+        string
+    },
+  body: 
+    boolean
+    horizontal
+    vertical
+    top
+    bottom
+    left
+    right
+    {
+      color: 
+        string
+        {
+          dark: string,
+          light: string
+        },
+      side: 
+        horizontal
+        vertical
+        top
+        bottom
+        left
+        right,
+      size: 
+        xxsmall
+        xsmall
+        small
+        medium
+        large
+        xlarge
+        string
+    },
+  footer: 
+    boolean
+    horizontal
+    vertical
+    top
+    bottom
+    left
+    right
+    {
+      color: 
+        string
+        {
+          dark: string,
+          light: string
+        },
+      side: 
+        horizontal
+        vertical
+        top
+        bottom
+        left
+        right,
+      size: 
+        xxsmall
+        xsmall
+        small
+        medium
+        large
+        xlarge
+        string
+    }
+}
+\`\`\`
+
 **columns**
 
 A description of the data. The order controls the column order.
@@ -3648,7 +4643,7 @@ A description of the data. The order controls the column order.
       made available for the column. 'primary' indicates that this property
       should be used as the unique identifier, which gives the cell 'row' scope
       for accessibility. If 'primary' is not used for any column, and
-      'primaryKey' isn't specified either, then the first column will be used. Defaults to \`[]\`.
+      'primaryKey' isn't specified either, then the first column will be used.
 
 \`\`\`
 [{
@@ -3676,13 +4671,17 @@ A description of the data. The order controls the column order.
   property: string,
   render: function,
   search: boolean,
-  sortable: boolean
+  sortable: boolean,
+  verticalAlign: 
+    middle
+    top
+    bottom
 }]
 \`\`\`
 
 **data**
 
-Array of data objects. Defaults to \`[]\`.
+Array of data objects.
 
 \`\`\`
 [{
@@ -3692,10 +4691,19 @@ Array of data objects. Defaults to \`[]\`.
 
 **groupBy**
 
-Property to group data by.
+Property to group data by. If object is specified
+      'property' is used to group data by, 'expand' accepts array of 
+       group keys that sets expanded groups and 'onExpand' is a function
+       that will be called after expand button is clicked with
+       an array of keys of expanded groups.
 
 \`\`\`
 string
+{
+  property: string,
+  expand: [string],
+  onExpand: function
+}
 \`\`\`
 
 **onMore**
@@ -3706,7 +4714,31 @@ Use this to indicate that 'data' doesn't contain all that it could.
       is more than you'd want to load into the browser. 'onMore' allows you
       to lazily fetch more from the server only when needed. This cannot
       be combined with properties that expect all data to be present in the
-      browser, such as columns.search, sortable, groupBy, or columns.aggregate.
+      browser, such as columns.search, sortable, groupBy, or 
+      columns.aggregate.
+
+\`\`\`
+function
+\`\`\`
+
+**replace**
+
+Whether to replace previously rendered items with a generic spacing
+      element when they have scrolled out of view. This is more performant but
+      means that in-page searching will not find elements that have been
+      replaced.
+
+\`\`\`
+boolean
+\`\`\`
+
+**onClickRow**
+
+When supplied, this function will be called with an event object that
+      include a 'datum' property containing the data value associated with
+      the clicked row. You should not include interactive elements, like
+      Anchor or Button inside table cells as that can cause confusion with
+      overlapping interactive elements.
 
 \`\`\`
 function
@@ -3723,15 +4755,92 @@ When supplied, and when at least one column has 'search' enabled,
 function
 \`\`\`
 
+**onSort**
+
+When supplied, this function will be called with an object
+      with a 'property' property that indicates which property
+      is being sorted on and a 'direction' property that will either be
+      'asc' or 'desc'. onSort={({ property, direction }) => {}}
+
+\`\`\`
+function
+\`\`\`
+
+**pad**
+
+Cell padding. You can set the padding per context by passing an
+      object with keys for 'heading', 'body', and/or 'footer'.
+
+\`\`\`
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+string
+{
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+}
+{
+  header: custom,
+  body: custom,
+  footer: custom
+}
+\`\`\`
+
 **primaryKey**
 
 When supplied, indicates the property for a data object to use to
       get a unique identifier. See also the 'columns.primary' description.
       Use this property when the columns approach will not work for your
-      data set.
+      data set. Setting primaryKey to false indicates there should be no
+      unique identifier, avoid this as it's less accessible.
 
 \`\`\`
 string
+boolean
 \`\`\`
 
 **resizeable**
@@ -3740,6 +4849,20 @@ Whether to allow the user to resize column widths.
 
 \`\`\`
 boolean
+\`\`\`
+
+**rowProps**
+
+Row specific background, border, and pad, keyed by primary key value.
+      For example:
+      { \\"primary-key-value\\": { background: ..., border: ..., pad: ... }},
+      where the background, border, and pad accept the same values as
+      the same named properties on DataTable.
+
+\`\`\`
+{
+
+}
 \`\`\`
 
 **size**
@@ -3755,6 +4878,19 @@ medium
 large
 xlarge
 string
+\`\`\`
+
+**sort**
+
+Which property to sort on and which direction to sort.
+
+\`\`\`
+{
+  direction: 
+    asc
+    desc,
+  property: string
+}
 \`\`\`
 
 **sortable**
@@ -3780,6 +4916,26 @@ table
 \`\`\`
 ## Theme
   
+**global.hover.background**
+
+The background style when hovering over an interactive row. Expects \`string | { color: string, opacity: string }\`.
+
+Defaults to
+
+\`\`\`
+{ color: 'active', opacity: 'medium' }
+\`\`\`
+
+**global.hover.color**
+
+The text color when hovering over an interactive row. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{ dark: 'white', light: 'black' }
+\`\`\`
+
 **dataTable.groupHeader.background**
 
 The background color of the group header. Expects \`string | { dark: string, light: string }\`.
@@ -3909,6 +5065,26 @@ Defaults to
 \`\`\`
 right
 \`\`\`
+
+**table.row.hover.background**
+
+The background color when hovering over an interactive row. Expects \`string | { color: string, opacity: string }\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**table.row.hover.color**
+
+The text color when hovering over an interactive row. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
 ",
   "Diagram": "## Diagram
 Graphical connection lines. Diagram is meant to be used with Stack.
@@ -3980,6 +5156,41 @@ svg
 \`\`\`
 ## Theme
   
+**diagram.extend**
+
+Any additional style for Diagram. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**diagram.line.color**
+
+The color of the connection line. Expects \`string | {dark: string, light: string}\`.
+
+Defaults to
+
+\`\`\`
+accent-1
+\`\`\`
+
+**global.colors**
+
+Color options. Expects \`object\`.
+
+Defaults to
+
+\`\`\`
+{
+      \\"accent-1\\": \\"#6FFFB0\\",
+      \\"graph-0\\": \\"accent-1\\",
+      \\"graph-1\\": \\"neutral-1\\",
+      ...
+    }
+\`\`\`
+
 **global.edgeSize**
 
 The possible sizes for the connections thickness and offset. Expects \`object\`.
@@ -3998,26 +5209,6 @@ Defaults to
         xlarge: '96px',
         responsiveBreakpoint: 'small',
     }
-\`\`\`
-
-**diagram.extend**
-
-Any additional style for Diagram. Expects \`string | (props) => {}\`.
-
-Defaults to
-
-\`\`\`
-undefined
-\`\`\`
-
-**diagram.line.color**
-
-The color of the connection line. Expects \`string\`.
-
-Defaults to
-
-\`\`\`
-accent-1
 \`\`\`
 ",
   "Distribution": "## Distribution
@@ -4039,7 +5230,8 @@ import { Distribution } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -4069,8 +5261,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -4082,6 +5274,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -4113,6 +5313,14 @@ xlarge
     large
     xlarge
     string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
   top: 
     xxsmall
     xsmall
@@ -4133,6 +5341,29 @@ xlarge
 string
 \`\`\`
 
+**basis**
+
+A fixed or relative size along its container's main axis.
+
+\`\`\`
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+xxlarge
+full
+1/2
+1/3
+2/3
+1/4
+2/4
+3/4
+auto
+string
+\`\`\`
+
 **children**
 
 Function that will be called when each value is rendered. Defaults to \`function children(value) {
@@ -4148,7 +5379,8 @@ function
 
 **fill**
 
-Whether the distribution expands to fill all of the available width and height.
+Whether the distribution expands to fill all of the available width 
+        and height.
 
 \`\`\`
 boolean
@@ -4159,6 +5391,8 @@ boolean
 The amount of spacing between child elements. Defaults to \`xsmall\`.
 
 \`\`\`
+none
+xxsmall
 xsmall
 small
 medium
@@ -4200,9 +5434,9 @@ import { Drop } from 'grommet';
 
 **align**
 
-How to align the drop with respect to the target element. Not specifying
-      a vertical or horizontal alignment will cause it to be aligned in the
-      center. Defaults to \`{
+How to align the drop with respect to the target element. Not 
+        specifying a vertical or horizontal alignment will cause it to be 
+        aligned in the center. Defaults to \`{
   \\"top\\": \\"top\\",
   \\"left\\": \\"left\\"
 }\`.
@@ -4234,7 +5468,8 @@ function
 
 **onEsc**
 
-Function that will be called when the user presses the escape key inside the drop.
+Function that will be called when the user presses the escape key inside
+       the drop.
 
 \`\`\`
 function
@@ -4292,7 +5527,8 @@ boolean
 
 **target**
 
-Required. Target where the drop will be aligned to. This should be a React reference.
+Required. Target where the drop will be aligned to. This should be a React 
+      reference.
 
 \`\`\`
 object
@@ -4390,8 +5626,8 @@ Defaults to
   "DropButton": "## DropButton
 A Button that controls a Drop. When opened, the Drop will contain
       whatever is specified via \`dropContent\`. The Drop will control the focus
-      so that the contents behind it are not focusable. All properties and theme properties of
-      Button or Drop can be passed through.
+      so that the contents behind it are not focusable. All properties and 
+      theme properties of Button or Drop can be passed through.
       
 
 [![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=DropButton&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=dropbutton&module=%2Fsrc%2FDropButton.js)
@@ -4406,7 +5642,8 @@ import { DropButton } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers. Defaults to \`Open Drop\`.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -4436,8 +5673,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -4449,6 +5686,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -4473,6 +5718,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -4588,6 +5841,20 @@ boolean
 \`\`\`
 button
 \`\`\`",
+  "Footer": "## Footer
+Footer for a document or section
+
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Footer&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=footer&module=%2Fsrc%2FFooter.js)
+## Usage
+
+\`\`\`javascript
+import { Footer } from 'grommet';
+<Footer />
+\`\`\`
+
+## Properties
+
+  ",
   "Form": "## Form
 A form that manages state for its fields.
 
@@ -4605,6 +5872,17 @@ import { Form } from 'grommet';
 
 An object representing any errors in the data. They keys should
         match the keys in the value object. Defaults to \`{}\`.
+
+\`\`\`
+{
+
+}
+\`\`\`
+
+**infos**
+
+An object representing any information details in the data.
+        They keys should match the keys in the value object. Defaults to \`{}\`.
 
 \`\`\`
 {
@@ -4638,7 +5916,8 @@ function
 
 Function that will be called when the form is submitted. The
       single argument is an event containing the latest value object
-      via \`event.value\`.
+      via \`event.value\` and an object indicating which fields were
+      touched via \`event.touched\`.
 
 \`\`\`
 function
@@ -4651,6 +5930,15 @@ Function that will be called when the form is reset. The
 
 \`\`\`
 function
+\`\`\`
+
+**validate**
+
+When to perform validation Defaults to \`submit\`.
+
+\`\`\`
+blur
+submit
 \`\`\`
 
 **value**
@@ -4685,16 +5973,29 @@ import { FormField } from 'grommet';
 
 **component**
 
-The component to insert in the FormField. Grommet will add update the form values when this field changes. Any additional properties (such as initial value) you pass to FormField will be forwarded to this component. The component may be custom as long it supports the proporties of name, value, onChange (event => {}), while event has either event.value or event.target.value.  
+The component to insert in the FormField. Grommet will add update the 
+      form values when this field changes. Any additional properties 
+      (such as initial value) you pass to FormField will be forwarded to this
+      component. The component may be custom as long it supports the properties
+      of name, value, onChange (event => {}), while event has either event.value
+      or event.target.value.
 
 \`\`\`
 function
 object
 \`\`\`
 
+**disabled**
+
+Whether the field should look disabled.
+
+\`\`\`
+boolean
+\`\`\`
+
 **error**
 
-Any error text describing issues with the field
+Any error text describing issues with the field's value
 
 \`\`\`
 string
@@ -4718,6 +6019,15 @@ The id of the input element contained in this field
 string
 \`\`\`
 
+**info**
+
+Any informational text regarding the field's value
+
+\`\`\`
+string
+node
+\`\`\`
+
 **label**
 
 A short label describing the field
@@ -4733,6 +6043,89 @@ The name of the value data when in a Form and the name of
       the input field.
 
 \`\`\`
+string
+\`\`\`
+
+**margin**
+
+The amount of margin around the component. An object can
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
+
+\`\`\`
+none
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+{
+  bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
 string
 \`\`\`
 
@@ -4754,19 +6147,37 @@ boolean
 
 **validate**
 
-Validation rule when used within a grommet Form. Provide a regular
-      expression or a function. If a
+Validation rule when used within a grommet Form. Provide an object
+      with a regular expression, a function, or an array of these. If a
       function is provided, it will be called with two arguments, the value
       for this field and the entire value object. This permits validation to
       encompass multiple fields. The function should return a string message
-      describing the validation issue, if any.
+      describing the validation issue, if any, or an object with 'message'
+      and 'status' properties.
 
 \`\`\`
 {
   regexp: object,
-  message: string
+  message: 
+    string
+    node,
+  status: 
+    error
+    info
 }
 function
+[
+  {
+    regexp: object,
+    message: 
+      string
+      node,
+    status: 
+      error
+      info
+  }
+  function
+]
 \`\`\`
   
 ## Intrinsic element
@@ -4823,7 +6234,47 @@ The pad of the FormField content. Expects \`object\`.
 Defaults to
 
 \`\`\`
-{ horizontal: 'small', bottom: 'small' }
+small
+\`\`\`
+
+**formField.disabled.background.color**
+
+The color of the FormField background when it is disabled. Expects \`string | {'dark': string, 'light': string}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**formField.disabled.background.opacity**
+
+The opacity of the FormField background when it is disabled. Expects \`string | boolean | number\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**formField.error.background.color**
+
+The color of the FormField background when there is an error. Expects \`string | {'dark': string, 'light': string}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**formField.error.background.opacity**
+
+The opacity of the FormField background when there is an error. Expects \`string | boolean | number\`.
+
+Defaults to
+
+\`\`\`
+undefined
 \`\`\`
 
 **formField.error.color**
@@ -4833,7 +6284,7 @@ The color of the FormField error. Expects \`string | {'dark': string, 'light': s
 Defaults to
 
 \`\`\`
-{ dark: 'status-critical', light: 'status-critical' }
+status-critical
 \`\`\`
 
 **formField.error.margin**
@@ -4876,6 +6327,36 @@ Defaults to
 { left: 'small' }
 \`\`\`
 
+**formField.info.color**
+
+The color of the FormField info. Expects \`string | {'dark': string, 'light': string}\`.
+
+Defaults to
+
+\`\`\`
+text-xweak
+\`\`\`
+
+**formField.info.margin**
+
+The margin used for the FormField info. Expects \`string | object\`.
+
+Defaults to
+
+\`\`\`
+{ vertical: 'xsmall', horizontal: 'small' }
+\`\`\`
+
+**formField.label**
+
+Any props of Text that will be applied on the FormField label. Expects \`object\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
 **formField.label.margin**
 
 The margin for the FormField label. Expects \`string | object\`.
@@ -4894,6 +6375,16 @@ Defaults to
 
 \`\`\`
 { bottom: 'small' }
+\`\`\`
+
+**formField.round**
+
+The rounding of the FormField. Expects \`boolean | string | object\`.
+
+Defaults to
+
+\`\`\`
+undefined
 \`\`\`
 
 **global.borderSize**
@@ -4932,7 +6423,8 @@ import { Grid } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -4962,8 +6454,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -4975,6 +6467,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -4999,6 +6499,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -5053,7 +6561,9 @@ stretch
 
 **areas**
 
-Area names and column,row coordinates.
+Grid areas.
+      Either area names and column,row coordinates.
+      Or, an array of string arrays that specify named grid areas.
 
 \`\`\`
 [{
@@ -5061,6 +6571,7 @@ Area names and column,row coordinates.
   start: [number],
   end: [number]
 }]
+[[string]]
 \`\`\`
 
 **columns**
@@ -5158,21 +6669,30 @@ boolean
 Gap sizes between rows and/or columns.
 
 \`\`\`
+xxsmall
+xsmall
 small
 medium
 large
+xlarge
 none
 {
   row: 
+    xxsmall
+    xsmall
     small
     medium
     large
+    xlarge
     none
     string,
   column: 
+    xxsmall
+    xsmall
     small
     medium
     large
+    xlarge
     none
     string
 }
@@ -5202,6 +6722,98 @@ end
 between
 around
 stretch
+\`\`\`
+
+**pad**
+
+The amount of padding around the box contents. An
+    object can be specified to distinguish horizontal padding, vertical
+    padding, and padding on a particular side of the box Defaults to \`none\`.
+
+\`\`\`
+none
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+{
+  bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
+string
+\`\`\`
+
+**responsive**
+
+Whether margin and pad sizes should be scaled for mobile
+        environments. Defaults to \`true\`.
+
+\`\`\`
+boolean
 \`\`\`
 
 **rows**
@@ -5345,6 +6957,48 @@ import { Grommet } from 'grommet';
 
 ## Properties
 
+**background**
+
+Either a color 
+identifier to use for the background color. For example: 'neutral-1'. Or, a 
+'url()' for an image. Dark is not needed if color is provided.
+
+\`\`\`
+string
+{
+  color: string,
+  dark: 
+    boolean
+    string,
+  image: string,
+  position: string,
+  opacity: 
+    string
+    boolean
+    number
+    weak
+    medium
+    strong,
+  repeat: 
+    no-repeat
+    repeat
+    string,
+  size: 
+    cover
+    contain
+    string,
+  light: string
+}
+\`\`\`
+
+**dir**
+
+Layout direction for right to left contexts
+
+\`\`\`
+rtl
+\`\`\`
+
 **full**
 
 Whether to take the whole viewport.
@@ -5355,7 +7009,8 @@ boolean
 
 **plain**
 
-Whether or not Grommet should apply a global font-family, font-size, and line-height.
+Whether or not Grommet should apply a global font-family, font-size,
+        and line-height.
 
 \`\`\`
 boolean
@@ -5377,12 +7032,34 @@ Custom styles for Grommet app component.
 object
 \`\`\`
 
+**themeMode**
+
+Dark vs. light theme variation. Default is unspecified and left to
+      theme.
+
+\`\`\`
+dark
+light
+\`\`\`
+
 **userAgent**
 
-User agent used to detect the device width for setting the initial breakpoint.
+User agent used to detect the device width for setting the initial
+      breakpoint.
 
 \`\`\`
 string
+\`\`\`
+
+**containerTarget**
+
+The node where Drop and Layer containers are inserted. Defaults to
+      document.body which is almost always the right choice. This is used
+      for less common cases like rendering within an internal node (e.g.
+      shadow root).
+
+\`\`\`
+object
 \`\`\`
   
 ## Intrinsic element
@@ -5412,8 +7089,22 @@ Defaults to
 undefined
 \`\`\`
 ",
+  "Header": "## Header
+Is a Box container for introductory content
+
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Header&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=header&module=%2Fsrc%2FHeader.js)
+## Usage
+
+\`\`\`javascript
+import { Header } from 'grommet';
+<Header />
+\`\`\`
+
+## Properties
+
+  ",
   "Heading": "## Heading
-Heading text structed in levels.
+Heading text structured in levels.
 
 [![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Heading&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=heading&module=%2Fsrc%2FHeading.js)
 ## Usage
@@ -5427,7 +7118,8 @@ import { Heading } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -5457,8 +7149,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -5470,6 +7162,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -5494,6 +7194,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -5682,7 +7390,9 @@ undefined
 
 **heading.level**
 
-The level that impacts line height, max width, font size, weight and family of the Heading. Expects \`object\`.
+The level that impacts line-height, max-width, font size, 
+weight and family of the Heading. Heading level is automatically adjusted at 
+different screen sizes. These screen sizes are derived from breakpoints. Expects \`object\`.
 
 Defaults to
 
@@ -5724,7 +7434,8 @@ undefined
 
 **heading.responsiveBreakpoint**
 
-The breakpoint to trigger changes in the Heading layout. The actual values will be derived from global.breakpoints. Expects \`string\`.
+The breakpoint to trigger changes in the Heading layout. 
+The actual values will be derived from global.breakpoints. Expects \`string\`.
 
 Defaults to
 
@@ -5747,7 +7458,8 @@ import { Image } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -5777,8 +7489,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -5790,6 +7502,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -5821,6 +7541,14 @@ xlarge
     large
     xlarge
     string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
   top: 
     xxsmall
     xsmall
@@ -5841,6 +7569,16 @@ xlarge
 string
 \`\`\`
 
+**fill**
+
+Whether the width and/or height should fill the container.
+
+\`\`\`
+horizontal
+vertical
+boolean
+\`\`\`
+
 **fit**
 
 How the image fills its container.
@@ -5852,7 +7590,8 @@ contain
 
 **fallback**
 
-Specifies the URL of the fallback image used when src is failing to load
+Specifies the URL of the fallback image used when 
+      src is failing to load
 
 \`\`\`
 string
@@ -5920,7 +7659,7 @@ function
 
 **items**
 
-The children callback will be called to render each item. Defaults to \`[]\`.
+The children callback will be called to render each item.
 
 \`\`\`
 [any]
@@ -6128,15 +7867,29 @@ import { Layer } from 'grommet';
 
 **animate**
 
-Animation transition of the Layer content when it opens. Defaults to \`true\`.
+Whether to animate the Layer content when it opens. This
+        property is deprecated and will be removed in the next major version
+        of grommet. Instead, use 'animation'. Defaults to \`true\`.
 
 \`\`\`
 boolean
 \`\`\`
 
+**animation**
+
+Animation transition of the Layer content when it opens and closes. Defaults to \`slide\`.
+
+\`\`\`
+slide
+fadeIn
+none
+boolean
+\`\`\`
+
 **full**
 
-Whether the width and/or height should fill the current viewport size.
+Whether the width and/or height should fill the current viewport 
+        size.
 
 \`\`\`
 boolean
@@ -6148,7 +7901,7 @@ horizontal
 
 The amount of margin around the Layer. An object can be specified to
 distinguish horizontal margin, vertical margin, and margin on a
-particular side of the layer Defaults to \`none\`.
+particular side of the layer
 
 \`\`\`
 none
@@ -6159,6 +7912,13 @@ medium
 large
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -6186,6 +7946,13 @@ large
     medium
     large
     string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    string,
   top: 
     xxsmall
     xsmall
@@ -6206,7 +7973,8 @@ string
 
 **modal**
 
-Whether there should be an overlay preventing interaction underneath the layer. Defaults to \`true\`.
+Whether there should be an overlay preventing interaction underneath 
+        the layer. Defaults to \`true\`.
 
 \`\`\`
 boolean
@@ -6214,7 +7982,8 @@ boolean
 
 **onClickOutside**
 
-Function that will be invoked on modal layers when the user clicks outside the layer.
+Function that will be invoked on modal layers when the user clicks 
+      outside the layer.
 
 \`\`\`
 function
@@ -6222,7 +7991,8 @@ function
 
 **onEsc**
 
-Function that will be called when the user presses the escape key inside the layer.
+Function that will be called when the user presses the escape key inside
+       the layer.
 
 \`\`\`
 function
@@ -6245,9 +8015,11 @@ bottom
 bottom-left
 bottom-right
 center
+end
 hidden
 left
 right
+start
 top
 top-left
 top-right
@@ -6259,6 +8031,15 @@ Whether the layer should take full width and height on mobile Defaults to \`true
 
 \`\`\`
 boolean
+\`\`\`
+
+**target**
+
+Target where the layer will be aligned to. This should be a React 
+      reference.
+
+\`\`\`
+object
 \`\`\`
   
 ## Intrinsic element
@@ -6320,7 +8101,8 @@ rgba(0, 0, 0, 0.5)
 
 **layer.responsiveBreakpoint**
 
-The actual breakpoint to trigger changes in the border, direction, gap, margin, pad, and round. Expects \`string\`.
+The actual breakpoint to trigger changes in the border, 
+direction, gap, margin, pad, and round. Expects \`string\`.
 
 Defaults to
 
@@ -6340,7 +8122,8 @@ Defaults to
 
 **global.breakpoints**
 
-The possible breakpoints that could affect border, direction, gap, margin, pad, and round. Expects \`object\`.
+The possible breakpoints that could affect border, direction, gap, margin, 
+    pad, and round. Expects \`object\`.
 
 Defaults to
 
@@ -6382,6 +8165,452 @@ Defaults to
   }
 \`\`\`
 ",
+  "List": "## List
+An ordered list of items.
+
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=List&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=list&module=%2Fsrc%2FList.js)
+## Usage
+
+\`\`\`javascript
+import { List } from 'grommet';
+<List data={[...]} />
+\`\`\`
+
+## Properties
+
+**a11yTitle**
+
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
+
+\`\`\`
+string
+\`\`\`
+
+**alignSelf**
+
+How to align along the cross axis when contained in
+      a Box or along the column axis when contained in a Grid.
+
+\`\`\`
+start
+center
+end
+stretch
+\`\`\`
+
+**gridArea**
+
+The name of the area to place
+    this inside a parent Grid.
+
+\`\`\`
+string
+\`\`\`
+
+**margin**
+
+The amount of margin around the component. An object can
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
+
+\`\`\`
+none
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+{
+  bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
+string
+\`\`\`
+
+**as**
+
+The DOM tag or react component to use for the element. Defaults to \`ul\`.
+
+\`\`\`
+string
+\`\`\`
+
+**background**
+
+Item background. An array value indicates that items should have
+      different backgrounds, modulo the array index.
+
+\`\`\`
+string
+[string]
+\`\`\`
+
+**border**
+
+Item border.
+
+\`\`\`
+boolean
+horizontal
+vertical
+top
+bottom
+left
+right
+start
+end
+{
+  color: 
+    string
+    {
+      dark: string,
+      light: string
+    },
+  side: 
+    horizontal
+    vertical
+    top
+    bottom
+    left
+    right
+    start
+    end,
+  size: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string
+}
+\`\`\`
+
+**data**
+
+Array of data objects.
+
+\`\`\`
+[
+  string
+  {
+
+  }
+]
+\`\`\`
+
+**children**
+
+Function that will be called when each data item is rendered.
+      It will be passed three arguments, the individual data item, its index,
+      and an object indicating the state of the item, if any. It
+      should return a react element.
+      For example:
+      \`children={(item, index, { active }) => <Box ...>{...}</Box>}\`
+      
+
+\`\`\`
+function
+\`\`\`
+
+**itemProps**
+
+Item specific background, border, and pad, keyed by data index.
+      For example:
+      { 27: { background: ..., border: ..., pad: ... }},
+      where the background, border, and pad accept the same values as
+      the same named properties on List.
+
+\`\`\`
+{
+
+}
+\`\`\`
+
+**onMore**
+
+Use this to indicate that 'data' doesn't contain all that it could.
+      It will be called when all of the data items have been rendered.
+      This might be used when the total number of items that could be retrieved
+      is more than you'd want to load into the browser. 'onMore' allows you
+      to lazily fetch more from the server only when needed.
+
+\`\`\`
+function
+\`\`\`
+
+**onClickItem**
+
+When supplied, this function will be called with an event object that
+      include a 'item' property containing the data value associated with
+      the clicked item and an 'index' property containing the index in 'data'
+      of the clicked item. You should not include interactive elements, like
+      Anchor or Button inside 'primaryKey' or 'secondaryKey' as that can
+      cause confusion with overlapping interactive elements.
+
+\`\`\`
+function
+\`\`\`
+
+**pad**
+
+Item padding.
+
+\`\`\`
+xxsmall
+xsmall
+small
+medium
+large
+xlarge
+string
+{
+  horizontal: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  vertical: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  top: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  left: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  start: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge,
+  end: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+}
+\`\`\`
+
+**primaryKey**
+
+When a string is supplied, it indicates the property in a data item
+      object to use to get the primary content. If a function is supplied, it
+      will be called with the current data item object and should return
+      a React element that will be rendered as the primary content.
+
+\`\`\`
+string
+function
+\`\`\`
+
+**secondaryKey**
+
+When a string is supplied, it indicates the property in a data item
+      object to use to get the secondary content. If a function is supplied, it
+      will be called with the current data item object and should return
+      a React element that will be rendered as the secondary content.
+
+\`\`\`
+string
+function
+\`\`\`
+
+**step**
+
+How many items to render at a time. Defaults to \`50\`.
+
+\`\`\`
+number
+\`\`\`
+  
+## Intrinsic element
+
+\`\`\`
+ol
+\`\`\`
+## Theme
+  
+**global.hover.background**
+
+The background style when hovering over an interactive item. Expects \`string | { color: string, opacity: string }\`.
+
+Defaults to
+
+\`\`\`
+{ color: 'active', opacity: 'medium' }
+\`\`\`
+
+**global.hover.color**
+
+The text color when hovering over an interactive item. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{ dark: 'white', light: 'black' }
+\`\`\`
+
+**list.extend**
+
+Any additional style for the list. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**list.item.background**
+
+Background color for list items. Expects \`string | [string]\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**list.item.border**
+
+Border for list items. Expects \`boolean | string | object\`.
+
+Defaults to
+
+\`\`\`
+horizontal
+\`\`\`
+
+**list.item.pad**
+
+Border for list items. Expects \`boolean | string | object\`.
+
+Defaults to
+
+\`\`\`
+{ horizontal: 'medium', vertical: 'small' }
+\`\`\`
+
+**list.item.extend**
+
+Any additional style for the list items. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+",
+  "Main": "## Main
+main content of a document.
+
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Main&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=main&module=%2Fsrc%2FMain.js)
+## Usage
+
+\`\`\`javascript
+import { Main } from 'grommet';
+<Main />
+\`\`\`
+
+## Properties
+
+  ",
   "Markdown": "## GrommetMarkdown
 Markdown formatting using Grommet components.
 
@@ -6398,7 +8627,7 @@ import { Markdown } from 'grommet';
 **components**
 
 Custom components and props to override html elements such as 'img'
-      or 'pre'. By default 'a', 'p', 'img', and table elements are overriden
+      or 'pre'. By default 'a', 'p', 'img', and table elements are overridden
       with grommet components
 
 \`\`\`
@@ -6424,6 +8653,16 @@ import { MaskedInput } from 'grommet';
 \`\`\`
 
 ## Properties
+
+**icon**
+
+An optional icon to show. This could be used to provide an
+      indication of what kind of input is expected, like an email icon,
+      or what the input will be used for, like a search icon.
+
+\`\`\`
+element
+\`\`\`
 
 **id**
 
@@ -6461,7 +8700,7 @@ function
 
 Describes the structure of the mask. If a regexp is provided, it should
       allow both the final full string element as well as partial strings
-      as the user types characters one by one. Defaults to \`[]\`.
+      as the user types characters one by one.
 
 \`\`\`
 [{
@@ -6469,12 +8708,24 @@ Describes the structure of the mask. If a regexp is provided, it should
     number
     [number],
   fixed: string,
-  options: [string],
+  options: [
+  string
+  number
+],
   regexp: 
     {
 
     }
 }]
+\`\`\`
+
+**reverse**
+
+Whether an icon should be reversed so that the icon is at the
+      end of the input.
+
+\`\`\`
+boolean
 \`\`\`
 
 **size**
@@ -6496,6 +8747,7 @@ What text to put in the input. The caller should ensure that it
 
 \`\`\`
 string
+number
 \`\`\`
   
 ## Intrinsic element
@@ -6505,6 +8757,26 @@ input
 \`\`\`
 ## Theme
   
+**global.hover.background**
+
+The background style when hovering. Expects \`string | { color: string, opacity: string }\`.
+
+Defaults to
+
+\`\`\`
+{ color: 'active', opacity: 'medium' }
+\`\`\`
+
+**global.hover.color**
+
+The text color when hovering. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{ dark: 'white', light: 'black' }
+\`\`\`
+
 **maskedInput.extend**
 
 Any additional style for MaskedInput. Expects \`string | (props) => {}\`.
@@ -6586,7 +8858,8 @@ import { Menu } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -6616,8 +8889,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -6629,6 +8902,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -6653,6 +8934,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -6690,7 +8979,8 @@ boolean
 
 **dropAlign**
 
-Where to place the drop down. The keys correspond to a side of the drop down.
+Where to place the drop down.
+The keys correspond to a side of the drop down.
 The values correspond to a side of the control. For instance,
 {left: 'left', top: 'bottom'} would align the left edges and the top of
 the drop down to the bottom of the control. At most one of left or right and
@@ -6745,7 +9035,7 @@ object
 
 **dropProps**
 
-Any valid Drop prop. Defaults to \`{}\`.
+Any valid Drop prop.
 
 \`\`\`
 object
@@ -6776,7 +9066,7 @@ node
 **items**
 
 Required. Menu items to be placed inside the drop down.
-The object values can be any Button prop, for example: label and onClick. Defaults to \`[]\`.
+The object values can be any Button prop, for example: label and onClick.
 
 \`\`\`
 [object]
@@ -6793,7 +9083,8 @@ node
 
 **messages**
 
-Custom messages. Used for accessibility by screen readers. Defaults to \`{
+Custom messages. Used for accessibility by screen readers. 
+      These values will be overridden if an a11yTitle is provided. Defaults to \`{
   \\"openMenu\\": \\"Open Menu\\",
   \\"closeMenu\\": \\"Close Menu\\"
 }\`.
@@ -6887,7 +9178,8 @@ import { Meter } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -6917,8 +9209,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -6930,6 +9222,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -6954,6 +9254,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -6996,8 +9304,18 @@ string
     weak
     medium
     strong
+    number
     boolean
 }
+\`\`\`
+
+**max**
+
+The maximum value for the Meter.
+
+\`\`\`
+number
+string
 \`\`\`
 
 **round**
@@ -7069,9 +9387,24 @@ Array of value objects describing the data.
   
 ## Theme
   
+**global.colors**
+
+Color options. Expects \`object\`.
+
+Defaults to
+
+\`\`\`
+{
+      \\"accent-1\\": \\"#6FFFB0\\",
+      \\"graph-0\\": \\"accent-1\\",
+      ...
+    }
+\`\`\`
+
 **global.edgeSize**
 
-The border-radius of the styled Meter. thickness, height and width of the Bar Meter, height of the Circle Meter. Expects \`object\`.
+The border-radius of the styled Meter. thickness, height and 
+    width of the Bar Meter, height of the Circle Meter. Expects \`object\`.
 
 Defaults to
 
@@ -7138,6 +9471,20 @@ Defaults to
 undefined
 \`\`\`
 ",
+  "Nav": "## Nav
+Is a Box container for navigation links
+
+[![](https://cdn-images-1.medium.com/fit/c/120/120/1*TD1P0HtIH9zF0UEH28zYtw.png)](https://storybook.grommet.io/?selectedKind=Nav&full=0&addons=0&stories=1&panelRight=0) [![](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/grommet/grommet-sandbox?initialpath=nav&module=%2Fsrc%2FNav.js)
+## Usage
+
+\`\`\`javascript
+import { Nav } from 'grommet';
+<Nav />
+\`\`\`
+
+## Properties
+
+  ",
   "Paragraph": "## Paragraph
 A paragraph of text.
 
@@ -7153,7 +9500,8 @@ import { Paragraph } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -7183,8 +9531,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -7196,6 +9544,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -7220,6 +9576,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -7257,6 +9621,14 @@ string
   dark: string,
   light: string
 }
+\`\`\`
+
+**fill**
+
+Whether the width should fill the container.
+
+\`\`\`
+boolean
 \`\`\`
 
 **responsive**
@@ -7299,7 +9671,8 @@ p
   
 **paragraph**
 
-The possible sizes of the paragraph in terms of its max-width, font-size and line-height. Expects \`object\`.
+The possible sizes of the paragraph in terms of its max-width,
+     font-size and line-height. Expects \`object\`.
 
 Defaults to
 
@@ -7399,6 +9772,19 @@ Same as React <input checked={} />
 boolean
 \`\`\`
 
+**children**
+
+Function that will be called to render the visual representation.
+      It will be passed an object indicating whether the button is checked. It
+      should return a react element.
+      For example:
+      \`children={({ checked }) => <Box ...>{...}</Box>}\`
+      
+
+\`\`\`
+function
+\`\`\`
+
 **disabled**
 
 Same as React <input disabled={} />. Also adds a hidden input element
@@ -7426,7 +9812,8 @@ node
 
 **name**
 
-Required. The DOM name attribute value to use for the underlying <input/> element.
+Required. The DOM name attribute value to use for the underlying <input/>
+       element.
 
 \`\`\`
 string
@@ -7446,7 +9833,119 @@ function
 
 \`\`\`
 input
-\`\`\`",
+\`\`\`
+## Theme
+  
+**radioButton.border.color**
+
+The color of the border of the Radio Button. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{dark: 'rgba(255, 255, 255, 0.5), light: 'rgba(0, 0, 0, 0.15)}
+\`\`\`
+
+**radioButton.border.width**
+
+The width size of the border of the RadioButton. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+2px
+\`\`\`
+
+**radioButton.check.color**
+
+The color of the checked icon in the RadioButton. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**radioButton.check.extend**
+
+Any additional style for the checked RadioButton. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**radioButton.check.radius**
+
+The border-radius of the RadioButton. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+100%
+\`\`\`
+
+**radioButton.extend**
+
+Any additional style for the RadioButton. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**radioButton.gap**
+
+The gap between the label and the RadioButton itself. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+small
+\`\`\`
+
+**radioButton.size**
+
+The size of the RadioButton. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+24px
+\`\`\`
+
+**radioButton.hover.border.color**
+
+The color of the RadioButton border when hovered over. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{dark: white, light: black}
+\`\`\`
+
+**radioButton.icon.extend**
+
+Any additional style for the RadioButton icon. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**radioButton.icon.size**
+
+The size of the icon in the RadioButton. Expects \`string\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+",
   "RadioButtonGroup": "## RadioButtonGroup
 A group of radio buttons.
 
@@ -7460,9 +9959,31 @@ import { RadioButtonGroup } from 'grommet';
 
 ## Properties
 
+**children**
+
+Function that will be called to render the visual representation.
+      It will be passed an object indicating whether the button is checked. It
+      should return a react element.
+      For example:
+      \`children={(option, { checked }) => <Box ...>{...}</Box>}\`
+      
+
+\`\`\`
+function
+\`\`\`
+
+**disabled**
+
+Disables all options.
+
+\`\`\`
+boolean
+\`\`\`
+
 **name**
 
-Required. The DOM name attribute value to use for the underlying <input/> elements.
+Required. The DOM name attribute value to use for the underlying <input/> 
+      elements.
 
 \`\`\`
 string
@@ -7499,6 +10020,7 @@ Currently selected option value.
 
 \`\`\`
 string
+object
 \`\`\`
   
 ## Intrinsic element
@@ -7609,7 +10131,9 @@ Defaults to
 
 **rangeInput.extend**
 
-Any additional style for the RangeInput. Expects \`string | (props) => {}\`.
+Any additional style for the RangeInput. Expects \`string | (props) => \`
+      any CSS styling;
+    \`\`.
 
 Defaults to
 
@@ -7649,7 +10173,9 @@ Defaults to
 
 **rangeInput.track.extend**
 
-Any additional style for the track. Expects \`string | (props) => {}\`.
+Any additional style for the track. Expects \`string | (props) => \`
+      any CSS styling;
+    \`\`.
 
 Defaults to
 
@@ -7719,10 +10245,7 @@ number
 
 **messages**
 
-Custom messages. Used for accessibility by screen readers. Defaults to \`{
-  \\"lower\\": \\"Lower Bounds\\",
-  \\"upper\\": \\"Upper Bounds\\"
-}\`.
+Custom messages used by screen readers for accessibility.
 
 \`\`\`
 {
@@ -7799,7 +10322,7 @@ number
 
 **values**
 
-Required. The current values. Defaults to \`[]\`.
+Required. The current values.
 
 \`\`\`
 [number]
@@ -7921,7 +10444,8 @@ string
 
 **method**
 
-Indicates whether the browser history should be appended to or replaced. Defaults to \`push\`.
+Indicates whether the browser history should be appended to or 
+      replaced. Defaults to \`push\`.
 
 \`\`\`
 push
@@ -7956,7 +10480,8 @@ string
 
 **method**
 
-Indicates whether the browser history should be appended to or replaced. Defaults to \`push\`.
+Indicates whether the browser history should be appended to or 
+      replaced. Defaults to \`push\`.
 
 \`\`\`
 push
@@ -7983,7 +10508,8 @@ import { Select } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -8013,8 +10539,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -8026,6 +10552,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -8050,6 +10584,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -8193,7 +10735,8 @@ boolean
 
 **icon**
 
-A custom icon to be used when rendering the select. You can use false to not render an icon at all.
+A custom icon to be used when rendering the select. You can use false to
+       not render an icon at all.
 
 \`\`\`
 boolean
@@ -8216,9 +10759,7 @@ function
 
 **messages**
 
-Custom messages. Defaults to \`{
-  \\"multiple\\": \\"multiple\\"
-}\`.
+Custom messages.
 
 \`\`\`
 {
@@ -8232,6 +10773,14 @@ Whether to allow multiple options to be selected.
 
 \`\`\`
 boolean
+\`\`\`
+
+**name**
+
+The name of the attribute when in a Form or FormField.
+
+\`\`\`
+string
 \`\`\`
 
 **onChange**
@@ -8279,17 +10828,6 @@ Use this to indicate that 'items' doesn't contain all that it could.
 function
 \`\`\`
 
-**replace**
-
-Whether to replace previously rendered items with a generic spacing
-      element when they have scrolled out of view. This is more performant but
-      means that in-page searching will not find elements that have been
-      replaced. Defaults to \`true\`.
-
-\`\`\`
-boolean
-\`\`\`
-
 **options**
 
 Required. Options can be either a string or an object. If an object is used, use
@@ -8298,6 +10836,8 @@ Required. Options can be either a string or an object. If an object is used, use
 \`\`\`
 [
   string
+  number
+  boolean
   element
   object
 ]
@@ -8313,10 +10853,11 @@ boolean
 
 **placeholder**
 
-Placeholder text to use when no value is provided.
+Placeholder to use when no value is provided.
 
 \`\`\`
 string
+element
 node
 \`\`\`
 
@@ -8328,9 +10869,21 @@ Whether this is a plain Select input with no border or padding.
 boolean
 \`\`\`
 
+**replace**
+
+Whether to replace previously rendered items with a generic spacing
+      element when they have scrolled out of view. This is more performant but
+      means that in-page searching will not find elements that have been
+      replaced. Defaults to \`true\`.
+
+\`\`\`
+boolean
+\`\`\`
+
 **searchPlaceholder**
 
-Placeholder text to use in the search box when the search input is empty.
+Placeholder text to use in the search box when the search input is 
+      empty.
 
 \`\`\`
 string
@@ -8349,7 +10902,7 @@ number
 
 **size**
 
-The size of the select.
+The size of the text and icon.
 
 \`\`\`
 small
@@ -8408,6 +10961,26 @@ string
   
 ## Theme
   
+**global.hover.background**
+
+The background style when hovering. Expects \`string | { color: string, opacity: string }\`.
+
+Defaults to
+
+\`\`\`
+{ color: 'active', opacity: 'medium' }
+\`\`\`
+
+**global.hover.color**
+
+The text color when hovering. Expects \`string | { dark: string, light: string }\`.
+
+Defaults to
+
+\`\`\`
+{ dark: 'white', light: 'black' }
+\`\`\`
+
 **select.background**
 
 The background color used for Select. Expects \`string\`.
@@ -8441,6 +11014,17 @@ Defaults to
 **select.container.extend**
 
 Any additional style for the container of the Select component. Expects \`string | (props) => {}\`.
+
+Defaults to
+
+\`\`\`
+undefined
+\`\`\`
+
+**select.control.open**
+
+Any additional style for the control open state of the Select 
+component. Expects \`object\`.
 
 Defaults to
 
@@ -8531,7 +11115,8 @@ node
 
 **messages**
 
-Custom messages for SkipLinks. Used for accessibility by screen readers. Defaults to \`{
+Custom messages for SkipLinks. Used for accessibility by screen 
+readers. Defaults to \`{
   \\"skipTo\\": \\"Skip To\\"
 }\`.
 
@@ -8560,7 +11145,8 @@ import { Stack } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -8590,8 +11176,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -8603,6 +11189,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -8627,6 +11221,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -8744,7 +11346,6 @@ boolean
 The title of the tab.
 
 \`\`\`
-string
 node
 \`\`\`
   
@@ -8880,7 +11481,8 @@ import { Table, TableHeader, TableFooter, TableBody, TableRow } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -8910,8 +11512,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -8923,6 +11525,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -8947,6 +11557,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -9357,7 +11975,8 @@ import { Tabs, Tab } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -9387,8 +12006,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -9400,6 +12019,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -9424,6 +12051,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -9628,7 +12263,8 @@ import { Text } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -9658,8 +12294,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -9671,6 +12307,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -9695,6 +12339,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -9736,9 +12388,9 @@ string
 
 **size**
 
-The font size and line height are primarily driven by the chosen tag. But, it can
-be adjusted via this size property. The tag should be set for semantic
-correctness and accessibility. This size property allows for stylistic
+The font size and line height are primarily driven by the chosen tag. 
+But, it can be adjusted via this size property. The tag should be set for 
+semantic correctness and accessibility. This size property allows for stylistic
 adjustments. Defaults to \`medium\`.
 
 \`\`\`
@@ -9768,6 +12420,7 @@ The DOM tag or react component to use for the element. Defaults to \`span\`.
 \`\`\`
 string
 function
+element
 \`\`\`
 
 **textAlign**
@@ -9829,7 +12482,8 @@ Defaults to
 
 **text**
 
-The possible sizes of the text in terms of its font-size and line-height. Expects \`object\`.
+The possible sizes of the text in terms of its font-size and 
+line-height. Expects \`object\`.
 
 Defaults to
 
@@ -10179,6 +12833,16 @@ Any valid Drop prop.
 object
 \`\`\`
 
+**icon**
+
+An optional icon to show. This could be used to provide an
+      indication of what kind of input is expected, like an email icon,
+      or what the input will be used for, like a search icon.
+
+\`\`\`
+element
+\`\`\`
+
 **id**
 
 The id attribute of the input.
@@ -10197,7 +12861,8 @@ boolean
 
 **messages**
 
-Custom messages for TextInput. Used for accessibility by screen readers. Defaults to \`{
+Custom messages for TextInput. Used for accessibility by screen 
+        readers. Defaults to \`{
   \\"enterSelect\\": \\"(Press Enter to Select)\\",
   \\"suggestionsCount\\": \\"suggestions available\\",
   \\"suggestionsExist\\": \\"This input has suggestions use arrow keys to navigate\\",
@@ -10215,7 +12880,7 @@ Custom messages for TextInput. Used for accessibility by screen readers. Default
 
 **name**
 
-The name attribute of the input.
+The name of the attribute when in a Form or FormField.
 
 \`\`\`
 string
@@ -10259,7 +12924,6 @@ function
 Placeholder to use when no value is provided.
 
 \`\`\`
-string
 node
 \`\`\`
 
@@ -10267,6 +12931,15 @@ node
 
 Whether this is a plain input with no border or padding.
 Only use this when the containing context provides sufficient affordance
+
+\`\`\`
+boolean
+\`\`\`
+
+**reverse**
+
+Whether an icon should be reversed so that the icon is at the
+      end of the input.
 
 \`\`\`
 boolean
@@ -10367,7 +13040,8 @@ Defaults to
 
 **text**
 
-The possible sizes of the text in terms of its font-size and line-height. Expects \`object\`.
+The possible sizes of the text in terms of its font-size and 
+    line-height. Expects \`object\`.
 
 Defaults to
 
@@ -10515,7 +13189,8 @@ import { Video } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -10545,8 +13220,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -10558,6 +13233,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -10582,6 +13265,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -10724,7 +13415,8 @@ import { WorldMap } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 \`\`\`
 string
@@ -10754,8 +13446,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 \`\`\`
 none
@@ -10767,6 +13459,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -10791,6 +13491,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -10854,6 +13562,16 @@ Continent details.
 }]
 \`\`\`
 
+**fill**
+
+Whether the width and/or height should fill the container.
+
+\`\`\`
+horizontal
+vertical
+boolean
+\`\`\`
+
 **onSelectPlace**
 
 Called when the user clicks on a place.
@@ -10913,7 +13631,8 @@ light-3
 
 **worldMap.continent.active**
 
-The size of the visual dots belonging to a continent when the continent is being hovered. Expects \`string\`.
+The size of the visual dots belonging to a continent when the
+continent is being hovered. Expects \`string\`.
 
 Defaults to
 
@@ -10923,7 +13642,8 @@ Defaults to
 
 **worldMap.continent.base**
 
-The size of the visual dots belonging to a continent that is not being hovered. Expects \`string\`.
+The size of the visual dots belonging to a continent that is
+not being hovered. Expects \`string\`.
 
 Defaults to
 
@@ -10943,7 +13663,8 @@ light-4
 
 **worldMap.place.active**
 
-The size of a visual dot for an individual place in the map when it is being hovered. Expects \`string\`.
+The size of a visual dot for an individual place in the map 
+when it is being hovered. Expects \`string\`.
 
 Defaults to
 
@@ -10953,7 +13674,8 @@ Defaults to
 
 **worldMap.place.base**
 
-The size of the visual dot representing an individual place in the map when it is not being hovered. Expects \`string\`.
+The size of the visual dot representing an individual place 
+in the map when it is not being hovered. Expects \`string\`.
 
 Defaults to
 

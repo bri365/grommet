@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { storiesOf } from '@storybook/react';
 
@@ -6,8 +6,13 @@ import { Box, Grommet, Select } from 'grommet';
 import { grommet } from 'grommet/themes';
 import { deepMerge } from 'grommet/utils';
 
+const colors = {
+  selected: 'neutral-3',
+};
+
 const customRoundedTheme = deepMerge(grommet, {
   global: {
+    colors,
     control: {
       border: {
         radius: '24px',
@@ -29,44 +34,41 @@ const customRoundedTheme = deepMerge(grommet, {
   select: {
     control: {
       extend: 'padding: 3px 6px;',
+      open: {
+        background: '#ece0fa',
+        border: '1px solid #7D4CDB',
+      },
     },
   },
 });
 
-class SimpleSelect extends Component {
-  static propTypes = {
-    theme: PropTypes.shape({}),
-  };
+const SimpleSelect = ({ theme, ...rest }) => {
+  const options = ['one', 'two'];
+  const [value, setValue] = useState('');
+  return (
+    <Grommet full theme={theme || grommet}>
+      <Box fill align="center" justify="start" pad="large">
+        <Select
+          id="select"
+          name="select"
+          placeholder="Select"
+          value={value}
+          options={options}
+          onChange={({ option }) => setValue(option)}
+          {...rest}
+        />
+      </Box>
+    </Grommet>
+  );
+};
 
-  static defaultProps = {
-    theme: undefined,
-  };
+SimpleSelect.propTypes = {
+  theme: PropTypes.shape({}),
+};
 
-  state = {
-    options: ['one', 'two'],
-    value: '',
-  };
-
-  render() {
-    const { theme, ...rest } = this.props;
-    const { options, value } = this.state;
-    return (
-      <Grommet full theme={theme || grommet}>
-        <Box fill align="center" justify="start" pad="large">
-          <Select
-            id="select"
-            name="select"
-            placeholder="Select"
-            value={value}
-            options={options}
-            onChange={({ option }) => this.setState({ value: option })}
-            {...rest}
-          />
-        </Box>
-      </Grommet>
-    );
-  }
-}
+SimpleSelect.defaultProps = {
+  theme: undefined,
+};
 
 const defaultOptions = [];
 const objectOptions = [];
@@ -82,4 +84,4 @@ for (let i = 1; i <= 200; i += 1) {
 
 storiesOf('Select', module)
   .add('Simple', () => <SimpleSelect />)
-  .add('Custom', () => <SimpleSelect open theme={customRoundedTheme} />);
+  .add('Custom Theme', () => <SimpleSelect open theme={customRoundedTheme} />);

@@ -1,7 +1,14 @@
 import { css } from 'styled-components';
 
 import { colorIsDark, getRGBA, normalizeColor } from './colors';
-import { evalStyle } from './styles';
+
+// evalStyle() converts a styled-components item into a string
+const evalStyle = (arg, theme) => {
+  if (arg && Array.isArray(arg) && typeof arg[0] === 'function') {
+    return arg[0]({ theme });
+  }
+  return arg;
+};
 
 export const normalizeBackground = (background, theme) => {
   // If the background has a light or dark object, use that
@@ -50,6 +57,11 @@ export const backgroundIsDark = (backgroundArg, theme) => {
 };
 
 export const backgroundStyle = (backgroundArg, theme, textColorArg) => {
+  // for Grommet component, if the background isn't defined, don't set it
+  if (backgroundArg === undefined) {
+    return undefined;
+  }
+
   // If the background has a light or dark object, use that
   const background = normalizeBackground(backgroundArg, theme);
   const textColor = textColorArg || theme.global.colors.text;
@@ -59,9 +71,9 @@ export const backgroundStyle = (backgroundArg, theme, textColorArg) => {
     if (background.image) {
       let color;
       if (background.dark === false) {
-        color = textColor.light;
+        color = normalizeColor(textColor.light || textColor, theme);
       } else if (background.dark) {
-        color = textColor.dark;
+        color = normalizeColor(textColor.dark || textColor, theme);
       } else if (!textColorArg) {
         color = 'inherit';
       }
@@ -74,7 +86,7 @@ export const backgroundStyle = (backgroundArg, theme, textColorArg) => {
       `);
     }
     if (background.color) {
-      const color = normalizeColor(background.color, theme);
+      const color = normalizeColor(background.color, theme, background.dark);
       const backgroundColor =
         getRGBA(
           color,
@@ -85,20 +97,21 @@ export const backgroundStyle = (backgroundArg, theme, textColorArg) => {
       styles.push(css`
         background-color: ${backgroundColor};
         ${(!background.opacity || background.opacity !== 'weak') &&
-          `color: ${
+          `color: ${normalizeColor(
             textColor[
               background.dark || colorIsDark(backgroundColor) ? 'dark' : 'light'
-            ]
-          };`}
+            ] || textColor,
+            theme,
+          )};`}
       `);
     }
     if (background.dark === false) {
       styles.push(css`
-        color: ${textColor.light};
+        color: ${textColor.light || textColor};
       `);
     } else if (background.dark) {
       styles.push(css`
-        color: ${textColor.dark};
+        color: ${textColor.dark || textColor};
       `);
     }
     return styles;
@@ -111,11 +124,19 @@ export const backgroundStyle = (backgroundArg, theme, textColorArg) => {
         background-size: cover;
       `;
     }
-    const color = normalizeColor(background, theme);
-    if (color) {
+    const backgroundColor = normalizeColor(background, theme);
+    if (backgroundColor) {
+      const backgroundDark = colorIsDark(backgroundColor);
       return css`
-        background: ${color};
-        color: ${textColor[colorIsDark(color) ? 'dark' : 'light']};
+        background: ${backgroundColor};
+        color: ${normalizeColor(
+          textColor[
+            backgroundDark || (backgroundDark === undefined && theme.dark)
+              ? 'dark'
+              : 'light'
+          ] || textColor,
+          theme,
+        )};
       `;
     }
   }
@@ -128,9 +149,8 @@ export const activeStyle = css`
     backgroundStyle(
       normalizeColor(props.theme.global.active.background, props.theme),
       props.theme,
+      props.theme.global.active.color,
     )}
-  color: ${props =>
-    normalizeColor(props.theme.global.active.color, props.theme)};
 `;
 
 export const selectedStyle = css`
@@ -138,7 +158,18 @@ export const selectedStyle = css`
     backgroundStyle(
       normalizeColor(props.theme.global.selected.background, props.theme),
       props.theme,
+      props.theme.global.selected.color,
     )}
-  color: ${props =>
-    normalizeColor(props.theme.global.selected.color, props.theme)};
 `;
+
+export const getHoverIndicatorStyle = (hoverIndicator, theme) => {
+  let background;
+  if (hoverIndicator === true || hoverIndicator === 'background') {
+    ({ background } = theme.global.hover);
+  } else {
+    background = hoverIndicator;
+  }
+  return css`
+    ${backgroundStyle(background, theme, theme.global.hover.color)}
+  `;
+};

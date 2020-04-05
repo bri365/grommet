@@ -88,8 +88,8 @@ class SelectContainer extends Component {
   componentDidMount() {
     const { onSearch } = this.props;
     const { activeIndex } = this.state;
-    // timeout need to send the operation through event loop and allow time to the portal
-    // to be available
+    // timeout need to send the operation through event loop and allow
+    // time to the portal to be available
     setTimeout(() => {
       const optionsNode = this.optionsRef.current;
       if (onSearch) {
@@ -129,15 +129,16 @@ class SelectContainer extends Component {
     );
   };
 
-  // wait a debounceDelay of idle time in ms, before notifying that the search changed.
+  // wait a debounceDelay of idle time in ms, before notifying that the search
+  // changed.
   // the debounceDelay timer starts to count when the user stopped typing
   onSearch = debounce(search => {
     const { onSearch } = this.props;
     onSearch(search);
   }, debounceDelay(this.props));
 
-  selectOption = option => () => {
-    const { multiple, onChange, value, selected } = this.props;
+  selectOption = option => event => {
+    const { multiple, onChange, value, valueKey, selected } = this.props;
     const { initialOptions } = this.state;
     if (onChange) {
       let nextValue = Array.isArray(value) ? value.slice() : [];
@@ -145,21 +146,22 @@ class SelectContainer extends Component {
       if (selected) {
         nextValue = selected.map(s => initialOptions[s]);
       }
+      const optionValue = valueKey ? option[valueKey] : option;
 
       if (multiple) {
-        if (nextValue.indexOf(option) !== -1) {
-          nextValue = nextValue.filter(v => v !== option);
+        if (nextValue.indexOf(optionValue) !== -1) {
+          nextValue = nextValue.filter(v => v !== optionValue);
         } else {
-          nextValue.push(option);
+          nextValue.push(optionValue);
         }
       } else {
-        nextValue = option;
+        nextValue = optionValue;
       }
 
       const nextSelected = Array.isArray(nextValue)
         ? nextValue.map(v => initialOptions.indexOf(v))
         : initialOptions.indexOf(nextValue);
-      onChange({
+      onChange(event, {
         option,
         value: nextValue,
         selected: nextSelected,
@@ -251,7 +253,7 @@ class SelectContainer extends Component {
     const { activeIndex } = this.state;
     if (activeIndex >= 0) {
       event.preventDefault(); // prevent submitting forms
-      this.selectOption(options[activeIndex])();
+      this.selectOption(options[activeIndex])(event);
     }
   };
 
@@ -359,6 +361,10 @@ class SelectContainer extends Component {
 
     const customSearchInput = theme.select.searchInput;
     const SelectTextInput = customSearchInput || TextInput;
+    const selectOptionsStyle = {
+      ...theme.select.options.box,
+      ...theme.select.options.container,
+    };
 
     return (
       <Keyboard
@@ -429,7 +435,7 @@ class SelectContainer extends Component {
                         })
                       ) : (
                         <OptionBox
-                          {...theme.select.options.box}
+                          {...selectOptionsStyle}
                           selected={isSelected}
                         >
                           <Text {...theme.select.options.text}>
@@ -447,7 +453,7 @@ class SelectContainer extends Component {
                 disabled
                 option={emptySearchMessage}
               >
-                <OptionBox {...theme.select.options.box}>
+                <OptionBox {...selectOptionsStyle}>
                   <Text {...theme.select.container.text}>
                     {emptySearchMessage}
                   </Text>
