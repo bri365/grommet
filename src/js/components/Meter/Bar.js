@@ -21,7 +21,7 @@ const Bar = props => {
     ...rest
   } = props;
   const width =
-    size === 'full' ? 288 : parseMetricToNum(theme.global.size[size]);
+    size === 'full' ? 288 : parseMetricToNum(theme.global.size[size] || size);
   const height = parseMetricToNum(
     theme.global.edgeSize[thickness] || thickness,
   );
@@ -40,8 +40,7 @@ const Bar = props => {
       const delta = (value * (width - 2 * capOffset)) / max;
       const d = `M ${start},${mid} L ${start + delta},${mid}`;
       const colorName =
-        color ||
-        (index === values.length - 1 ? theme.meter.color : defaultColor(index, theme));
+        color || defaultColor(index, theme, values ? values.length : 0);
       let hoverProps;
       if (onHover) {
         hoverProps = {

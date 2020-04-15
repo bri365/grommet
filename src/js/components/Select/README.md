@@ -13,7 +13,8 @@ import { Select } from 'grommet';
 
 **a11yTitle**
 
-Custom title to be used by screen readers.
+Custom label to be used by screen readers. When provided, an aria-label will
+   be added to the element.
 
 ```
 string
@@ -43,8 +44,8 @@ string
 **margin**
 
 The amount of margin around the component. An object can
-      be specified to distinguish horizontal margin, vertical margin, and
-      margin on a particular side.
+    be specified to distinguish horizontal margin, vertical margin, and
+    margin on a particular side.
 
 ```
 none
@@ -56,6 +57,14 @@ large
 xlarge
 {
   bottom: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  end: 
     xxsmall
     xsmall
     small
@@ -80,6 +89,14 @@ xlarge
     xlarge
     string,
   right: 
+    xxsmall
+    xsmall
+    small
+    medium
+    large
+    xlarge
+    string,
+  start: 
     xxsmall
     xsmall
     small
@@ -223,11 +240,13 @@ boolean
 
 **icon**
 
-A custom icon to be used when rendering the select. You can use false to not render an icon at all.
+A custom icon to be used when rendering the select. You can use false to
+       not render an icon at all.
 
 ```
 boolean
 function
+node
 ```
 
 **labelKey**
@@ -245,9 +264,7 @@ function
 
 **messages**
 
-Custom messages. Defaults to `{
-  "multiple": "multiple"
-}`.
+Custom messages.
 
 ```
 {
@@ -261,6 +278,14 @@ Whether to allow multiple options to be selected.
 
 ```
 boolean
+```
+
+**name**
+
+The name of the attribute when in a Form or FormField.
+
+```
+string
 ```
 
 **onChange**
@@ -296,6 +321,18 @@ Function that will be called when the user types in the search input.
 function
 ```
 
+**onMore**
+
+Use this to indicate that 'items' doesn't contain all that it could.
+      It will be called when the entire list of items has been rendered.
+      This might be used when the total number of items that could be retrieved
+      is more than you'd want to load into the browser. 'onMore' allows you
+      to lazily fetch more from the server only when needed.
+
+```
+function
+```
+
 **options**
 
 Required. Options can be either a string or an object. If an object is used, use
@@ -304,6 +341,8 @@ Required. Options can be either a string or an object. If an object is used, use
 ```
 [
   string
+  number
+  boolean
   element
   object
 ]
@@ -311,7 +350,7 @@ Required. Options can be either a string or an object. If an object is used, use
 
 **open**
 
-Initial state of the select component
+Control the state of the component.
 
 ```
 boolean
@@ -319,10 +358,11 @@ boolean
 
 **placeholder**
 
-Placeholder text to use when no value is provided.
+Placeholder to use when no value is provided.
 
 ```
 string
+element
 node
 ```
 
@@ -334,9 +374,21 @@ Whether this is a plain Select input with no border or padding.
 boolean
 ```
 
+**replace**
+
+Whether to replace previously rendered items with a generic spacing
+      element when they have scrolled out of view. This is more performant but
+      means that in-page searching will not find elements that have been
+      replaced. Defaults to `true`.
+
+```
+boolean
+```
+
 **searchPlaceholder**
 
-Placeholder text to use in the search box when the search input is empty.
+Placeholder text to use in the search box when the search input is 
+      empty.
 
 ```
 string
@@ -355,7 +407,7 @@ number
 
 **size**
 
-The size of the select.
+The size of the text and icon.
 
 ```
 small
@@ -414,6 +466,26 @@ string
   
 ## Theme
   
+**global.hover.background**
+
+The background style when hovering. Expects `string | { color: string, opacity: string }`.
+
+Defaults to
+
+```
+{ color: 'active', opacity: 'medium' }
+```
+
+**global.hover.color**
+
+The text color when hovering. Expects `string | { dark: string, light: string }`.
+
+Defaults to
+
+```
+{ dark: 'white', light: 'black' }
+```
+
 **select.background**
 
 The background color used for Select. Expects `string`.
@@ -454,9 +526,30 @@ Defaults to
 undefined
 ```
 
+**select.control.open**
+
+Any additional style for the control open state of the Select 
+component. Expects `object`.
+
+Defaults to
+
+```
+undefined
+```
+
 **select.control.extend**
 
 Any additional style for the control of the Select component. Expects `string | (props) => {}`.
+
+Defaults to
+
+```
+undefined
+```
+
+**select.icons.margin**
+
+The margin used for Select icons. Expects `string | object`.
 
 Defaults to
 

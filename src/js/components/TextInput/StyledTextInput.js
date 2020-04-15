@@ -24,10 +24,15 @@ const plainStyle = css`
 const StyledTextInput = styled.input`
   ${inputStyle} width: 100%;
 
-  ${props => props.size && sizeStyle(props)} ${props =>
-  props.plain && plainStyle}
+  ${props => props.size && sizeStyle(props)}
+  ${props => props.plain && plainStyle}
 
   ${placeholderStyle}
+  ${props =>
+    props.icon &&
+    (props.reverse
+      ? `padding-right: ${props.theme.global.edgeSize.large};`
+      : `padding-left: ${props.theme.global.edgeSize.large};`)}
 
   &::-moz-focus-inner {
     border: none;
@@ -49,6 +54,11 @@ Object.setPrototypeOf(StyledTextInput.defaultProps, defaultProps);
 const StyledTextInputContainer = styled.div`
   position: relative;
   width: 100%;
+
+  ${props =>
+    props.theme.textInput &&
+    props.theme.textInput.container &&
+    props.theme.textInput.container.extend};
 `;
 
 StyledTextInputContainer.defaultProps = {};
@@ -74,6 +84,19 @@ const StyledPlaceholder = styled.div`
 StyledPlaceholder.defaultProps = {};
 Object.setPrototypeOf(StyledPlaceholder.defaultProps, defaultProps);
 
+const StyledIcon = styled.div`
+  position: absolute;
+  display: flex;
+  justify: center;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  ${props =>
+    props.reverse
+      ? `right: ${props.theme.global.input.padding};`
+      : `left: ${props.theme.global.input.padding};`}
+`;
+
 const StyledSuggestions = styled.ol`
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -94,5 +117,6 @@ export {
   StyledTextInput,
   StyledTextInputContainer,
   StyledPlaceholder,
+  StyledIcon,
   StyledSuggestions,
 };

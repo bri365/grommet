@@ -34,6 +34,13 @@ class RoutedButton extends Component {
 
   render() {
     const { href, path, method, onClick, ...rest } = this.props;
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(
+        `This component will be deprecated in the upcoming releases.
+         Please refer to https://github.com/grommet/grommet/issues/2855 
+         for more information.`,
+      );
+    }
     return (
       <Button
         {...rest}
@@ -47,7 +54,8 @@ class RoutedButton extends Component {
 
 let RoutedButtonDoc;
 if (process.env.NODE_ENV !== 'production') {
-  RoutedButtonDoc = require('./doc').doc(RoutedButton); // eslint-disable-line global-require
+  // eslint-disable-next-line global-require
+  RoutedButtonDoc = require('./doc').doc(RoutedButton);
 }
 const RoutedButtonWrapper = RoutedButtonDoc || RoutedButton;
 

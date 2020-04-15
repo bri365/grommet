@@ -45,6 +45,7 @@ class SelectContainer extends Component {
     searchPlaceholder: undefined,
     selected: undefined,
     value: '',
+    replace: true,
   };
 
   optionRefs = {};
@@ -52,6 +53,15 @@ class SelectContainer extends Component {
   searchRef = createRef();
 
   optionsRef = createRef();
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialOptions: props.options,
+      search: '',
+      activeIndex: -1,
+    };
+  }
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const { options, value, onSearch } = nextProps;
@@ -75,16 +85,11 @@ class SelectContainer extends Component {
     return null;
   }
 
-  state = {
-    search: '',
-    activeIndex: -1,
-  };
-
   componentDidMount() {
     const { onSearch } = this.props;
     const { activeIndex } = this.state;
-    // timeout need to send the operation through event loop and allow time to the portal
-    // to be available
+    // timeout need to send the operation through event loop and allow
+    // time to the portal to be available
     setTimeout(() => {
       const optionsNode = this.optionsRef.current;
       if (onSearch) {
@@ -124,46 +129,39 @@ class SelectContainer extends Component {
     );
   };
 
-  // wait a debounceDelay of idle time in ms, before notifying that the search changed.
+  // wait a debounceDelay of idle time in ms, before notifying that the search
+  // changed.
   // the debounceDelay timer starts to count when the user stopped typing
   onSearch = debounce(search => {
     const { onSearch } = this.props;
     onSearch(search);
   }, debounceDelay(this.props));
 
-  selectOption = (option, index) => () => {
-    const { multiple, onChange, options, selected, value } = this.props;
-
+  selectOption = option => event => {
+    const { multiple, onChange, value, valueKey, selected } = this.props;
+    const { initialOptions } = this.state;
     if (onChange) {
-      let nextValue = option;
-      let nextSelected = index;
+      let nextValue = Array.isArray(value) ? value.slice() : [];
+      // preserve compatibility until selected is deprecated
+      if (selected) {
+        nextValue = selected.map(s => initialOptions[s]);
+      }
+      const optionValue = valueKey ? option[valueKey] : option;
+
       if (multiple) {
-        nextValue = [];
-        nextSelected = [];
-        let removed = false;
-        let selectedIndexes = [];
-
-        if (Array.isArray(selected)) {
-          selectedIndexes = selected;
-        } else if (Array.isArray(value)) {
-          selectedIndexes = value.map(v => options.indexOf(v));
+        if (nextValue.indexOf(optionValue) !== -1) {
+          nextValue = nextValue.filter(v => v !== optionValue);
+        } else {
+          nextValue.push(optionValue);
         }
-
-        selectedIndexes.forEach(selectedIndex => {
-          if (selectedIndex === index) {
-            removed = true;
-          } else {
-            nextValue.push(options[selectedIndex]);
-            nextSelected.push(selectedIndex);
-          }
-        });
-        if (!removed) {
-          nextValue.push(option);
-          nextSelected.push(index);
-        }
+      } else {
+        nextValue = optionValue;
       }
 
-      onChange({
+      const nextSelected = Array.isArray(nextValue)
+        ? nextValue.map(v => initialOptions.indexOf(v))
+        : initialOptions.indexOf(nextValue);
+      onChange(event, {
         option,
         value: nextValue,
         selected: nextSelected,
@@ -255,7 +253,7 @@ class SelectContainer extends Component {
     const { activeIndex } = this.state;
     if (activeIndex >= 0) {
       event.preventDefault(); // prevent submitting forms
-      this.selectOption(options[activeIndex], activeIndex)();
+      this.selectOption(options[activeIndex])(event);
     }
   };
 
@@ -351,16 +349,22 @@ class SelectContainer extends Component {
       dropHeight,
       emptySearchMessage,
       id,
+      onMore,
       onKeyDown,
       onSearch,
       options,
       searchPlaceholder,
       theme,
+      replace,
     } = this.props;
     const { activeIndex, search } = this.state;
 
     const customSearchInput = theme.select.searchInput;
     const SelectTextInput = customSearchInput || TextInput;
+    const selectOptionsStyle = {
+      ...theme.select.options.box,
+      ...theme.select.options.container,
+    };
 
     return (
       <Keyboard
@@ -395,7 +399,12 @@ class SelectContainer extends Component {
             overflow="auto"
           >
             {options.length > 0 ? (
-              <InfiniteScroll items={options} step={theme.select.step} replace>
+              <InfiniteScroll
+                items={options}
+                step={theme.select.step}
+                onMore={onMore}
+                replace={replace}
+              >
                 {(option, index) => {
                   const isDisabled = this.isDisabled(index);
                   const isSelected = this.isSelected(index);
@@ -415,9 +424,7 @@ class SelectContainer extends Component {
                         !isDisabled ? this.onActiveOption(index) : undefined
                       }
                       onClick={
-                        !isDisabled
-                          ? this.selectOption(option, index)
-                          : undefined
+                        !isDisabled ? this.selectOption(option) : undefined
                       }
                     >
                       {children ? (
@@ -428,7 +435,7 @@ class SelectContainer extends Component {
                         })
                       ) : (
                         <OptionBox
-                          {...theme.select.options.box}
+                          {...selectOptionsStyle}
                           selected={isSelected}
                         >
                           <Text {...theme.select.options.text}>
@@ -446,7 +453,7 @@ class SelectContainer extends Component {
                 disabled
                 option={emptySearchMessage}
               >
-                <OptionBox {...theme.select.options.box}>
+                <OptionBox {...selectOptionsStyle}>
                   <Text {...theme.select.container.text}>
                     {emptySearchMessage}
                   </Text>
